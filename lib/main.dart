@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/detailpage/detail_information.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/splashscreen/splashscreen.dart';
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const DetailfoodInfo(),
+      home: const Splashscreen(),
     );
   }
 }

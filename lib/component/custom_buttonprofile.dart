@@ -26,11 +26,12 @@ class CustomButtonprofile extends StatelessWidget {
         onPressed: callback,
         style: ElevatedButton.styleFrom(backgroundColor: color),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               title,
-              style: TextStyle(color: textColor),
+              style: TextStyle(
+                  color: textColor, fontSize: 18, fontWeight: FontWeight.bold),
             ),
             icon,
           ],

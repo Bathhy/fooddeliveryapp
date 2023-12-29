@@ -9,3 +9,6 @@ const imagepancake = 'assets/images/pancake.jpg';
 const imageSpag = 'assets/images/spaghetti with chicken.jpg';
 const imageMP = 'assets/images/My profile.png';
 const imageperson = 'assets/images/joji.jpg';
+const imageblue = 'assets/images/blue drink.jpg';
+const imagelays = 'assets/images/lays.jpg';
+const imagespicy = 'assets/images/spicy.jpg';

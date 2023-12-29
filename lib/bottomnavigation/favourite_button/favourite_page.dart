@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
-import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:get/get.dart';
 
 class Myfavourite extends StatefulWidget {
@@ -32,7 +31,7 @@ class _MyhistoryState extends State<Myfavourite> {
           color: Colors.black,
         ),
       ),
-      bottomNavigationBar: MyBottomNavigation(),
+      // bottomNavigationBar: MyBottomNavigation(),
     );
   }
 }

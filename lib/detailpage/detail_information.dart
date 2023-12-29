@@ -50,13 +50,13 @@ class Description_on_detail_page extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: CircleAvatar(
             radius: 100,
-            backgroundImage: AssetImage(foodlist[0].img),
+            backgroundImage: AssetImage(Food.foodlist[0].img),
           ),
         ),
         Container(
           alignment: Alignment.center,
           child: Text(
-            foodlist[0].name,
+            Food.foodlist[0].name,
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -66,7 +66,7 @@ class Description_on_detail_page extends StatelessWidget {
         ),
         Container(
           child: Text(
-            foodlist[0].price,
+            Food.foodlist[0].price,
             style: TextStyle(
               color: colorOrange,
               fontSize: 20,

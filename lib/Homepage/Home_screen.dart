@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/Homepage/order_page.dart';
+import 'package:fodddelieveryapp/bottomnavigation/profile_button/profile_acc.dart';
+import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/Homepage/tab_bar.dart';
 import 'package:fodddelieveryapp/component/custom_seemorebutton.dart';
@@ -13,11 +16,29 @@ class Homescreen extends StatefulWidget {
   State<Homescreen> createState() => _HomescreenState();
 }
 
-class _HomescreenState extends State<Homescreen> {
+class _HomescreenState extends State<Homescreen>
+    with SingleTickerProviderStateMixin {
+  final List<String> categorys = ["Food", "Drink", "Snacks", "Sauces"];
+  late TabController _tabController;
+
+  final HomeController _homeController = Get.put(HomeController());
+
+  @override
+  void initState() {
+    _tabController = TabController(length: categorys.length, vsync: this);
+    _tabController.addListener(() {
+      _homeController.filterByCategory(categorys[_tabController.index]);
+    });
+    _homeController.filterByCategory(categorys.first);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorGrey,
       appBar: AppBar(
+        backgroundColor: colorGrey,
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           Padding(
@@ -39,12 +60,19 @@ class _HomescreenState extends State<Homescreen> {
       drawer: const Drawerclass(),
       bottomNavigationBar: MyBottomNavigation(),
       body: Column(
-        children: const [
+        children: [
           Topofhome(),
-          Mytabbar(),
+          Mytabbar(
+            categorys: categorys,
+            tabController: _tabController,
+          ),
           Align(alignment: Alignment.centerRight, child: Seemorebutton()),
           SizedBox(height: 10),
-          Expanded(child: Mybuildcard()),
+          Expanded(
+            child: Mybuildcard(
+              foodlist: _homeController.foodList,
+            ),
+          ),
         ],
       ),
     );
@@ -57,26 +85,57 @@ class Drawerclass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(
+      backgroundColor: colorOrange,
+      child: ListView(
         children: [
-          ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(249, 254, 42, 5),
-                ),
-                child: Text('Drawer head'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {},
-              ),
-            ],
+          ListTile(
+            iconColor: Colors.white,
+            leading: Icon(Icons.account_circle_outlined),
+            title: const Text(
+              'Profile',
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {
+              Get.to(Myprofile());
+            },
+          ),
+          ListTile(
+            iconColor: Colors.white,
+            leading: Icon(Icons.add_shopping_cart),
+            title: const Text(
+              'Orders',
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {
+              Get.to(Myorder());
+            },
+          ),
+          ListTile(
+            iconColor: Colors.white,
+            leading: Icon(Icons.sell_outlined),
+            title: const Text(
+              'Offer and Promo',
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {},
+          ),
+          ListTile(
+            iconColor: Colors.white,
+            leading: Icon(Icons.sticky_note_2_outlined),
+            title: const Text(
+              'Privacy Policy',
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {},
+          ),
+          ListTile(
+            iconColor: Colors.white,
+            leading: Icon(Icons.shield_outlined),
+            title: const Text(
+              'Security',
+              style: TextStyle(color: Colors.white),
+            ),
+            onTap: () {},
           ),
         ],
       ),
@@ -127,7 +186,7 @@ class Topofhome extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color.fromARGB(255, 234, 216, 216),
+                fillColor: Colors.grey[400],
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none),

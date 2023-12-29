@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile_button/profile_card.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
@@ -18,10 +17,12 @@ class _MyprofileState extends State<Myprofile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorGrey,
       appBar: AppBar(
+        backgroundColor: colorGrey,
         leading: IconButton(
           onPressed: () {
-            Get.to(Homescreen());
+            Get.back();
           },
           icon: Icon(
             Icons.arrow_back_ios,
@@ -75,29 +76,45 @@ class _MyprofileState extends State<Myprofile> {
               CustomButtonprofile(
                 title: 'Orders',
                 callback: () {},
-                icon: Icon(Icons.arrow_forward_ios),
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                ),
                 textColor: Colors.black,
+                color: Colors.white,
               ),
               SizedBox(height: 20),
               CustomButtonprofile(
                 title: 'Pending reviews',
                 callback: () {},
-                icon: Icon(Icons.arrow_forward_ios),
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                ),
                 textColor: Colors.black,
+                color: Colors.white,
               ),
               SizedBox(height: 20),
               CustomButtonprofile(
                 title: 'Faq',
                 callback: () {},
-                icon: Icon(Icons.arrow_forward_ios),
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                ),
                 textColor: Colors.black,
+                color: Colors.white,
               ),
               SizedBox(height: 20),
               CustomButtonprofile(
                 title: 'Help',
                 callback: () {},
-                icon: Icon(Icons.arrow_forward_ios),
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.black,
+                ),
                 textColor: Colors.black,
+                color: Colors.white,
               ),
               SizedBox(height: 10),
               CustomButton(title: 'Update', callback: () {}),

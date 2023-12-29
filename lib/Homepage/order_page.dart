@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
 import 'package:get/get.dart';
 
 class Myorder extends StatefulWidget {
@@ -25,7 +24,7 @@ class _MyhistoryState extends State<Myorder> {
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
-            Get.to(Homescreen());
+            Get.back();
           },
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.black,
