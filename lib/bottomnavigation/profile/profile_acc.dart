@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/profile_button/profile_card.dart';
+import 'package:fodddelieveryapp/bottomnavigation/profile/profile_card.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/component/custom_buttonprofile.dart';
+import 'package:fodddelieveryapp/controller/profile_controller.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,9 @@ class Myprofile extends StatefulWidget {
 }
 
 class _MyprofileState extends State<Myprofile> {
+
+  ProfileController _profileController = Get.put(ProfileController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

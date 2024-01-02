@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
 import 'package:get/get.dart';
 
 class Myfavourite extends StatefulWidget {
@@ -8,7 +7,7 @@ class Myfavourite extends StatefulWidget {
   @override
   State<Myfavourite> createState() => _MyhistoryState();
 }
-
+  enum Fruit { apple, banana }
 class _MyhistoryState extends State<Myfavourite> {
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _MyhistoryState extends State<Myfavourite> {
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
-            Get.to(Homescreen());
+            Get.back();
           },
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.black,

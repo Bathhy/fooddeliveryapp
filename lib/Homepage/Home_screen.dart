@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/Homepage/order_page.dart';
-import 'package:fodddelieveryapp/bottomnavigation/profile_button/profile_acc.dart';
+import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:get/get.dart';
@@ -88,6 +88,7 @@ class Drawerclass extends StatelessWidget {
       backgroundColor: colorOrange,
       child: ListView(
         children: [
+          SizedBox(height: 150),
           ListTile(
             iconColor: Colors.white,
             leading: Icon(Icons.account_circle_outlined),
@@ -99,6 +100,7 @@ class Drawerclass extends StatelessWidget {
               Get.to(Myprofile());
             },
           ),
+          Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),
           ListTile(
             iconColor: Colors.white,
             leading: Icon(Icons.add_shopping_cart),
@@ -110,6 +112,7 @@ class Drawerclass extends StatelessWidget {
               Get.to(Myorder());
             },
           ),
+          Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),
           ListTile(
             iconColor: Colors.white,
             leading: Icon(Icons.sell_outlined),
@@ -119,6 +122,7 @@ class Drawerclass extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),
           ListTile(
             iconColor: Colors.white,
             leading: Icon(Icons.sticky_note_2_outlined),
@@ -128,14 +132,30 @@ class Drawerclass extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),
           ListTile(
             iconColor: Colors.white,
-            leading: Icon(Icons.shield_outlined),
+            leading: Icon(Icons.security_outlined),
             title: const Text(
               'Security',
               style: TextStyle(color: Colors.white),
             ),
             onTap: () {},
+          ),
+          SizedBox(height: 200),
+          TextButton.icon(
+            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_forward_sharp,
+              color: Colors.white,
+            ),
+            label: Text(
+              'Sing-Out',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 17,
+              ),
+            ),
           ),
         ],
       ),

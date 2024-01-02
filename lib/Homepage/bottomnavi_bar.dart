@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/favourite_page.dart';
-import 'package:fodddelieveryapp/bottomnavigation/profile_button/profile_acc.dart';
+import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:get/get.dart';
 
