@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
-import 'package:fodddelieveryapp/bottomnavigation/favourite_button/favourite_page.dart';
-import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class MyBottomNavigation extends StatefulWidget {
@@ -11,62 +9,52 @@ class MyBottomNavigation extends StatefulWidget {
 }
 
 class _MyBottomNavigationState extends State<MyBottomNavigation> {
-  int _currentIndex = 0;
+  final HomeController homeController = Get.find();
 
   @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: _currentIndex,
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
-
-        switch (index) {
-          case 1:
-            Get.to(Myfavourite());
-            break;
-          case 2:
-            Get.to(Myprofile());
-            break;
-          case 3:
-            Get.to(Myhistory());
-            break;
-        }
-      },
-      backgroundColor: colorGrey,
-      selectedItemColor: colorOrange, // Use a default color here
-      unselectedItemColor: Colors.grey,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home,
-            size: 31,
+  Widget build(
+    BuildContext context,
+  ) {
+    return Obx(
+      () => BottomNavigationBar(
+        currentIndex: homeController.currentIndex.value,
+        onTap: (index) {
+          homeController.switchpage(index);
+        },
+        backgroundColor: colorGrey,
+        selectedItemColor: colorOrange,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 31,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.favorite_outline_outlined,
-            size: 31,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite_outline_outlined,
+              size: 31,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person_2_outlined,
-            size: 31,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_2_outlined,
+              size: 31,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.history,
-            size: 31,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.history,
+              size: 31,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

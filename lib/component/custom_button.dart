@@ -17,12 +17,13 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 314,
-      height: 50,
+    return Container(
+      width: 100,
+      height: 100,
       child: ElevatedButton(
           onPressed: callback,
-          style: ElevatedButton.styleFrom(backgroundColor: color),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: color, minimumSize: Size.fromHeight(50)),
           child: Text(
             title,
             style: TextStyle(color: textColor),

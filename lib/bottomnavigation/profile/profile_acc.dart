@@ -15,7 +15,6 @@ class Myprofile extends StatefulWidget {
 }
 
 class _MyprofileState extends State<Myprofile> {
-
   ProfileController _profileController = Get.put(ProfileController());
 
   @override
@@ -120,8 +119,15 @@ class _MyprofileState extends State<Myprofile> {
                 textColor: Colors.black,
                 color: Colors.white,
               ),
-              SizedBox(height: 10),
-              CustomButton(title: 'Update', callback: () {}),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: CustomButton(title: 'Update', callback: () {})),
+              ),
             ],
           ),
         ),

@@ -5,16 +5,19 @@ class Food {
   String name = "";
   String price = "";
   String? category;
+  String? purchasecate;
 
   Food(
       {required String img,
       required String name,
       required String price,
-      String? category}) {
+      String? category,
+      String? purchasecate}) {
     this.img = img;
     this.name = name;
     this.price = price;
     this.category = category;
+    this.purchasecate = purchasecate;
   }
 
   static List<Food> foodlist = [

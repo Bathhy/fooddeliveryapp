@@ -19,11 +19,32 @@ class BankPayment extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildRadioButton(
-                  controller, "Card", PayMethod.Card, Colors.orange),
-              _buildRadioButton(controller, "Bank Account",
-                  PayMethod.BankAccount, Colors.pink),
+                  controller,
+                  "Card",
+                  PayMethod.Card,
+                  Colors.orange,
+                  Icon(
+                    Icons.credit_card,
+                    color: Colors.white,
+                  )),
               _buildRadioButton(
-                  controller, "PayPal", PayMethod.Paypal, Colors.blue),
+                  controller,
+                  "Bank Account",
+                  PayMethod.BankAccount,
+                  Colors.pink,
+                  Icon(
+                    Icons.account_balance,
+                    color: Colors.white,
+                  )),
+              _buildRadioButton(
+                  controller,
+                  "PayPal",
+                  PayMethod.Paypal,
+                  Colors.blue,
+                  Icon(
+                    Icons.paypal,
+                    color: Colors.white,
+                  )),
             ],
           ),
         );
@@ -32,7 +53,7 @@ class BankPayment extends StatelessWidget {
   }
 
   RadioListTile<PayMethod> _buildRadioButton(ProfileController controller,
-      String title, PayMethod value, Color colorcont) {
+      String title, PayMethod value, Color colorcont, Icon iconpayment) {
     return RadioListTile<PayMethod>(
       title: Row(
         children: [
@@ -43,6 +64,7 @@ class BankPayment extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               color: colorcont,
             ),
+            child: iconpayment,
           ),
           SizedBox(width: 10),
           Text(title)

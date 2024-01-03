@@ -48,7 +48,7 @@ class Profilecard_two extends StatelessWidget {
                     overflow: TextOverflow.ellipsis),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
