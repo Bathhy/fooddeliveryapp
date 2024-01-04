@@ -26,12 +26,15 @@ class _SignupPageState extends State<SigninPage> {
             const AuthContainer(),
             const SizedBox(height: 20),
             const AuthForm(),
-            CustomButton(
-              title: "Login",
-              callback: () {
-                // signincontroller.navigateTohome();
-                Get.to(Homescreen());
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomButton(
+                title: "Login",
+                callback: () {
+                  // signincontroller.navigateTohome();
+                  Get.to(Homescreen());
+                },
+              ),
             )
           ],
         ),

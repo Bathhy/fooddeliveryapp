@@ -5,6 +5,7 @@ import 'package:fodddelieveryapp/Homepage/order_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
+import 'package:fodddelieveryapp/search/search_food.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/Homepage/tab_bar.dart';
 import 'package:fodddelieveryapp/component/custom_seemorebutton.dart';
@@ -168,62 +169,67 @@ class Topofhome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 20,
-                ),
-                child: Text('Delicious',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 34)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 20,
               ),
-            ],
-          ),
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text('food for you',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 34)),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.grey[400],
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none),
-                hintText: 'Search',
-                hintStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 17,
-                ),
-                prefixIcon: const SizedBox(
-                  width: 18,
-                  child: Icon(Icons.search),
+              child: Text('Delicious',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 34)),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Text('food for you',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 34)),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            InkWell(
+              onTap: () {
+                Get.to(SearchPage());
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  height: MediaQuery.of(context).size.height / 14,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: Colors.grey),
+                  child: Row(
+                    children: [
+                      Icon(Icons.search),
+                      SizedBox(width: 20),
+                      Text(
+                        'Search',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }
