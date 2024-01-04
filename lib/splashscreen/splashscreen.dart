@@ -79,17 +79,18 @@ class _SplashscreenState extends State<Splashscreen> {
               ),
             ),
             Positioned(
-              left: 40,
-              bottom: 40,
-              child: CustomButton(
-                title: 'Get Started',
-                callback: () {
-                  Get.to(SigninPage());
-                },
-                color: Colors.white,
-                textColor: colorOrange,
-              ),
-            ),
+                bottom: 40,
+                left: 0,
+                right: 0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: CustomButton(
+                    callback: () => Get.to(const SigninPage()),
+                    title: "Get Started",
+                    color: Colors.white,
+                    textColor: colorOrange,
+                  ),
+                )),
           ],
         ),
       ),

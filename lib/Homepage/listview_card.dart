@@ -24,7 +24,7 @@ class Mybuildcard extends StatelessWidget {
           final Food food = foodlist[index];
           return GestureDetector(
             onTap: () {
-              Get.to(DetailfoodInfo());
+              Get.to(DetailfoodInfo(food: food));
             },
             child: LayoutBuilder(builder: (context, constraint) {
               return Container(
@@ -58,7 +58,7 @@ class Mybuildcard extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(top: 50),
                                 child: Text(
-                                  foodlist[index].name,
+                                  food.name,
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 18,
@@ -70,7 +70,7 @@ class Mybuildcard extends StatelessWidget {
                                   top: 5,
                                 ),
                                 child: Text(
-                                  foodlist[index].price,
+                                  food.price,
                                   style: TextStyle(
                                       color: colorOrange,
                                       fontSize: 15,

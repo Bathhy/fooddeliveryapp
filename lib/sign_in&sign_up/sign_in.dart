@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/signin_controller.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';

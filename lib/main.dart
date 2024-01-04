@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/splashscreen/splashscreen.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/splashscreen/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
