@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-// import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/detail_information.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
-// import 'package:fodddelieveryapp/detailpage/detail_information.dart';
 
 class Mybuildcard extends StatelessWidget {
   const Mybuildcard({Key? key, required this.foodlist});

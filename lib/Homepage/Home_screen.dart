@@ -4,6 +4,7 @@ import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/Homepage/order_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/search/search_food.dart';
 import 'package:get/get.dart';
@@ -48,7 +49,7 @@ class _HomescreenState extends State<Homescreen>
             ),
             child: IconButton(
               onPressed: () {
-                Get.to(Myorder());
+                Get.to(MyOrder());
               },
               icon: Icon(
                 Icons.shopping_cart_outlined,
@@ -110,7 +111,7 @@ class Drawerclass extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             onTap: () {
-              Get.to(Myorder());
+              Get.to(MyOrder());
             },
           ),
           Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),

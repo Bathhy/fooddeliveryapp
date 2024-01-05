@@ -119,8 +119,9 @@ class _DescriptionDetailpageState extends State<DescriptionDetailpage> {
                             padding: EdgeInsets.only(right: 6),
                             child: CircleAvatar(
                               radius: 8,
-                              backgroundColor:
-                                  _activepage == index ? Colors.red : colorGrey,
+                              backgroundColor: _activepage == index
+                                  ? Colors.red
+                                  : Colors.white,
                             ),
                           );
                         },
@@ -178,7 +179,7 @@ class _DescriptionDetailpageState extends State<DescriptionDetailpage> {
                 child: Text(
                   "Delivered between monday aug and thursday 20 from 8pm to 91:32 pm",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.grey[600],
                     fontSize: 15,
                   ),
                   maxLines: 3,
@@ -215,7 +216,7 @@ class _DescriptionDetailpageState extends State<DescriptionDetailpage> {
                 child: Text(
                   "All our foods are double checked before leaving our stores so by any case you found a broken food please contact our hotline immediately.",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.grey[600],
                     fontSize: 15,
                   ),
                   maxLines: 4,

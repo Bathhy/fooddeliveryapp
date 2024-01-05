@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:get/get.dart';
 
-class Myorder extends StatefulWidget {
-  const Myorder({super.key});
+class MyOrder extends StatefulWidget {
+  const MyOrder({super.key});
 
   @override
-  State<Myorder> createState() => _MyhistoryState();
+  State<MyOrder> createState() => _MyOrderState();
 }
 
-class _MyhistoryState extends State<Myorder> {
+class _MyOrderState extends State<MyOrder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorGrey,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Order',
           style: TextStyle(
@@ -21,13 +24,39 @@ class _MyhistoryState extends State<Myorder> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: colorGrey,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.black,
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.shopping_cart_outlined,
+              size: 200,
+              color: Colors.grey[400],
+            ),
+            Text(
+              'No Orders yet',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Hit the orange button down \n below to Create an order',
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontSize: 17,
+              ),
+            ),
+          ],
         ),
       ),
     );
