@@ -35,7 +35,7 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
         margin: EdgeInsets.only(bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: CustomButton(
-          title: 'Add to card',
+          title: 'Add to cart',
           callback: () {
             Get.to(CartOrder());
           },

@@ -11,7 +11,6 @@ class Mybuildcard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final HomeController myhomeController = Get.find();
     return Obx(
       () => ListView.separated(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
