@@ -1,16 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/sign_in&sign_up/sign_in.dart';
-import 'package:fodddelieveryapp/sign_in&sign_up/sign_out.dart';
 import 'package:get/get.dart';
 
-class SingInController extends GetxController {
-  var selectedTab = 0.obs;
-  List<Widget> tabContents = [
-    const SigninPage(),
-    const SignUPPage(),
+class LoginTabController extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  late TabController controller;
+
+  final List<Tab> logintab = <Tab>[
+    Tab(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Login'),
+        ],
+      ),
+    ),
+    Tab(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Sign-up'),
+        ],
+      ),
+    ),
   ];
 
-  void selectTab(int index) {
-    selectedTab.value = index;
+  @override
+  void onInit() {
+    controller = TabController(length: 2, vsync: this);
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    controller.dispose();
+    super.onClose();
   }
 }

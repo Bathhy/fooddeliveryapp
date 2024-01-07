@@ -33,104 +33,101 @@ class _MyprofileState extends State<Myprofile> {
           ),
         ),
       ),
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30, top: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    imageMP,
-                    height: 34,
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Personal Details',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      imageMP,
+                      height: 34,
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Change',
-                          style: TextStyle(color: colorOrange, fontSize: 15),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Personal Details',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              Profilecard(),
-              SizedBox(height: 20),
-              CustomButtonprofile(
-                title: 'Orders',
-                callback: () {},
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black,
-                ),
-                textColor: Colors.black,
-                color: Colors.white,
-              ),
-              SizedBox(height: 20),
-              CustomButtonprofile(
-                title: 'Pending reviews',
-                callback: () {},
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black,
-                ),
-                textColor: Colors.black,
-                color: Colors.white,
-              ),
-              SizedBox(height: 20),
-              CustomButtonprofile(
-                title: 'Faq',
-                callback: () {},
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black,
-                ),
-                textColor: Colors.black,
-                color: Colors.white,
-              ),
-              SizedBox(height: 20),
-              CustomButtonprofile(
-                title: 'Help',
-                callback: () {},
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black,
-                ),
-                textColor: Colors.black,
-                color: Colors.white,
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20),
-                child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
                     ),
-                    child: CustomButton(title: 'Update', callback: () {})),
-              ),
-            ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Change',
+                            style: TextStyle(color: colorOrange, fontSize: 15),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Profilecard(),
+                SizedBox(height: 20),
+                CustomButtonprofile(
+                  title: 'Orders',
+                  callback: () {},
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  textColor: Colors.black,
+                  color: Colors.white,
+                ),
+                SizedBox(height: 20),
+                CustomButtonprofile(
+                  title: 'Pending reviews',
+                  callback: () {},
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  textColor: Colors.black,
+                  color: Colors.white,
+                ),
+                SizedBox(height: 20),
+                CustomButtonprofile(
+                  title: 'Faq',
+                  callback: () {},
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  textColor: Colors.black,
+                  color: Colors.white,
+                ),
+                SizedBox(height: 20),
+                CustomButtonprofile(
+                  title: 'Help',
+                  callback: () {},
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  textColor: Colors.black,
+                  color: Colors.white,
+                ),
+                SizedBox(height: 50),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    child:
+                        CustomButton(title: 'Complete Order', callback: () {})),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

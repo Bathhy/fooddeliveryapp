@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_card_two.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:get/get.dart';
 
 class profil_acc_bank extends StatelessWidget {
@@ -63,6 +64,10 @@ class profil_acc_bank extends StatelessWidget {
               ),
               SizedBox(height: 10),
               BankPayment(),
+              SizedBox(height: 200),
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: CustomButton(title: 'Update', callback: () {})),
             ],
           ),
         ),

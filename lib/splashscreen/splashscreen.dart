@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
-import 'package:fodddelieveryapp/sign_in&sign_up/sign_in.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -85,7 +85,7 @@ class _SplashscreenState extends State<Splashscreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
-                  callback: () => Get.to(const SigninPage()),
+                  callback: () => Get.to(MyLoginPage()),
                   title: "Get Started",
                   color: Colors.white,
                   textColor: colorOrange,
