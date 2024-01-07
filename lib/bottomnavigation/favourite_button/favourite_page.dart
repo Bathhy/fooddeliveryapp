@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:get/get.dart';
 
 class Myfavourite extends StatefulWidget {
@@ -15,6 +16,7 @@ class _MyhistoryState extends State<Myfavourite> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: colorGrey,
         appBar: AppBar(
           title: Text(
             'Favourite',
@@ -24,7 +26,7 @@ class _MyhistoryState extends State<Myfavourite> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: colorGrey,
           leading: IconButton(
             onPressed: () {
               Get.back();

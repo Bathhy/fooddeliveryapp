@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
-import 'package:fodddelieveryapp/sign_in&sign_up/tab_bar2.dart';
 
 class SignUPPage extends StatefulWidget {
   const SignUPPage({Key? key}) : super(key: key);

@@ -25,8 +25,11 @@ class _CartOrderState extends State<CartOrder> {
       body: Column(
         children: [
           Expanded(
-            child: CartListview(
-              foodlist: Food.foodlist,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: CartListview(
+                foodlist: Food.foodlist,
+              ),
             ),
           )
         ],
