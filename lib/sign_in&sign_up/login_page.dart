@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
+import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/signin_controller.dart';
@@ -100,7 +101,7 @@ class MyLoginPage extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TextButton(
               child: const Text(
@@ -121,7 +122,7 @@ class MyLoginPage extends StatelessWidget {
           child: CustomButton(
             title: "Login",
             callback: () {
-              Get.to(Homescreen());
+              Get.offAll(MyBottomNavigation());
             },
           ),
         ),

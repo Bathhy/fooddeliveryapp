@@ -119,11 +119,10 @@ class _MyprofileState extends State<Myprofile> {
                   textColor: Colors.black,
                   color: Colors.white,
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 30),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 15),
-                    child:
-                        CustomButton(title: 'Complete Order', callback: () {})),
+                    child: CustomButton(title: 'Update', callback: () {})),
               ],
             ),
           ),

@@ -85,7 +85,9 @@ class _SplashscreenState extends State<Splashscreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
-                  callback: () => Get.to(MyLoginPage()),
+                  callback: () {
+                    Get.to(() => MyLoginPage());
+                  },
                   title: "Get Started",
                   color: Colors.white,
                   textColor: colorOrange,

@@ -1,59 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/home_controller.dart';
+import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:get/get.dart';
 
-class MyBottomNavigation extends StatefulWidget {
-  @override
-  _MyBottomNavigationState createState() => _MyBottomNavigationState();
-}
-
-class _MyBottomNavigationState extends State<MyBottomNavigation> {
-  final HomeController homeController = Get.find();
+class MyBottomNavigation extends StatelessWidget {
+  final BottomNaviController _bottomcontroller = Get.find();
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return Obx(
-      () => BottomNavigationBar(
-        currentIndex: homeController.currentIndex.value,
-        onTap: (index) {
-          homeController.switchpage(index);
-        },
-        backgroundColor: colorGrey,
-        selectedItemColor: colorOrange,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 31,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Obx(
+          () => _bottomcontroller.Screen[_bottomcontroller.currentIndex.value]),
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          backgroundColor: colorGrey,
+          elevation: 0,
+          currentIndex: _bottomcontroller.currentIndex.value,
+          onTap: (index) {
+            _bottomcontroller.pageclick(index);
+          },
+          selectedItemColor: colorOrange,
+          unselectedItemColor: Colors.grey,
+          // type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 30,
+              ),
+              label: "",
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_outline_outlined,
-              size: 31,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_border,
+                size: 30,
+              ),
+              label: "",
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_2_outlined,
-              size: 31,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_outline_outlined,
+                size: 30,
+              ),
+              label: "",
             ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.history,
-              size: 31,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.history,
+                size: 30,
+              ),
+              label: "",
             ),
-            label: '',
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -66,7 +66,7 @@ class profil_acc_bank extends StatelessWidget {
               BankPayment(),
               SizedBox(height: 200),
               Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   child: CustomButton(title: 'Update', callback: () {})),
             ],
           ),

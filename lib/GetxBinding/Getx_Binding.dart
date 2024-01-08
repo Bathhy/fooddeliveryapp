@@ -1,3 +1,4 @@
+import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/controller/profile_controller.dart';
 import 'package:fodddelieveryapp/controller/signin_controller.dart';
@@ -9,5 +10,6 @@ class FoodBinding extends Bindings {
     Get.put(HomeController());
     Get.put(ProfileController());
     Get.put(LoginTabController());
+    Get.put(BottomNaviController());
   }
 }

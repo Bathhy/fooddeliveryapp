@@ -3,6 +3,7 @@ import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
 import 'package:fodddelieveryapp/search/search_food.dart';
@@ -23,6 +24,7 @@ class _HomescreenState extends State<Homescreen>
   late TabController _tabController;
 
   final HomeController _homeController = Get.put(HomeController());
+  final BottomNaviController botcontroller = Get.find();
 
   @override
   void initState() {
@@ -59,7 +61,6 @@ class _HomescreenState extends State<Homescreen>
         ],
       ),
       drawer: const Drawerclass(),
-      bottomNavigationBar: MyBottomNavigation(),
       body: Column(
         children: [
           Topofhome(),

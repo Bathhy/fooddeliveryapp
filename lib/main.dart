@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/GetxBinding/Getx_Binding.dart';
+import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
+import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/splashscreen/splashscreen.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const Splashscreen(),
+      home: Splashscreen(),
     );
   }
 }
