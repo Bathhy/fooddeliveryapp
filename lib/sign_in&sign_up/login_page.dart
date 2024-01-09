@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
-import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
+import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/controller/signin_controller.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
 class MyLoginPage extends StatelessWidget {
   MyLoginPage({super.key});
+
   final LoginTabController _tabcontrol = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -76,11 +76,13 @@ class MyLoginPage extends StatelessWidget {
   }
 
   Widget _LoginView() {
+    final Authcontroller _authController = Get.find();
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextFormField(
+            controller: _authController.Lemail,
             decoration: const InputDecoration(
               labelText: 'Email Address',
             ),
@@ -91,6 +93,7 @@ class MyLoginPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextFormField(
+            controller: _authController.Lpassword,
             obscureText: true,
             obscuringCharacter: "*",
             decoration: const InputDecoration(
@@ -122,7 +125,11 @@ class MyLoginPage extends StatelessWidget {
           child: CustomButton(
             title: "Login",
             callback: () {
-              Get.offAll(MyBottomNavigation());
+              // Call the login method from AuthController
+              _authController.login(
+                _authController.Lemail.text,
+                _authController.Lpassword.text,
+              );
             },
           ),
         ),
@@ -131,11 +138,13 @@ class MyLoginPage extends StatelessWidget {
   }
 
   Widget _SignUpView() {
+    final Authcontroller _authController = Get.find();
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextFormField(
+            controller: _authController.Remail,
             decoration: const InputDecoration(
               labelText: 'Email Address',
             ),
@@ -146,6 +155,7 @@ class MyLoginPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextFormField(
+            controller: _authController.Rpassword,
             obscureText: true,
             obscuringCharacter: "*",
             decoration: const InputDecoration(
@@ -158,6 +168,7 @@ class MyLoginPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextFormField(
+            controller: _authController.RcPassword,
             decoration: const InputDecoration(
               labelText: 'Confirm Password',
             ),
@@ -169,7 +180,12 @@ class MyLoginPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           child: CustomButton(
             title: "Sign Up",
-            callback: () {},
+            callback: () {
+              _authController.register(
+                  _authController.Remail.text,
+                  _authController.Rpassword.text,
+                  _authController.RcPassword.text);
+            },
           ),
         ),
       ],

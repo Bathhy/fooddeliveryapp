@@ -31,10 +31,10 @@ class _CartOrderState extends State<CartOrder> {
                 foodlist: Food.foodlist,
               ),
             ),
-          )
+          ),
+          _customButton(),
         ],
       ),
-      bottomSheet: _customButton(),
     );
   }
 

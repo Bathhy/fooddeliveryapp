@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -23,7 +22,7 @@ class _HomescreenState extends State<Homescreen>
   final List<String> categorys = ["Food", "Drink", "Snacks", "Sauces"];
   late TabController _tabController;
 
-  final HomeController _homeController = Get.put(HomeController());
+  final HomeController _homeController = Get.find();
   final BottomNaviController botcontroller = Get.find();
 
   @override
@@ -144,7 +143,7 @@ class Drawerclass extends StatelessWidget {
             ),
             onTap: () {},
           ),
-          SizedBox(height: 200),
+          SizedBox(height: 100),
           TextButton.icon(
             onPressed: () {},
             icon: Icon(

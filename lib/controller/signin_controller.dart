@@ -5,6 +5,7 @@ class LoginTabController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController controller;
 
+
   final List<Tab> logintab = <Tab>[
     Tab(
       child: Row(
@@ -35,4 +36,6 @@ class LoginTabController extends GetxController
     controller.dispose();
     super.onClose();
   }
+
+  
 }

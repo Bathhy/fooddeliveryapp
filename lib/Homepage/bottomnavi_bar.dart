@@ -13,8 +13,7 @@ class MyBottomNavigation extends StatelessWidget {
           () => _bottomcontroller.Screen[_bottomcontroller.currentIndex.value]),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-          backgroundColor: colorGrey,
-          elevation: 0,
+          backgroundColor: Colors.black,
           currentIndex: _bottomcontroller.currentIndex.value,
           onTap: (index) {
             _bottomcontroller.pageclick(index);

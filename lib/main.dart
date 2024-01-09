@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/GetxBinding/Getx_Binding.dart';
-import 'package:fodddelieveryapp/Homepage/Home_screen.dart';
-import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/splashscreen/splashscreen.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -18,9 +16,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: FoodBinding(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: colorOrange),
-        useMaterial3: true,
-      ),
+          colorScheme: ColorScheme.fromSeed(seedColor: colorOrange),
+          useMaterial3: true,
+          bottomNavigationBarTheme: BottomNavigationBarTheme.of(context)
+              .copyWith(backgroundColor: Colors.black)),
       debugShowCheckedModeBanner: false,
       home: Splashscreen(),
     );

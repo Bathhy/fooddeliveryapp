@@ -4,7 +4,10 @@ import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 
 class CartListview extends StatelessWidget {
-  const CartListview({super.key, required this.foodlist});
+  const CartListview({
+    super.key,
+    required this.foodlist,
+  });
   final List<Food> foodlist;
 
   @override
@@ -147,7 +150,6 @@ class CartListview extends StatelessWidget {
                   ],
                 ),
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                margin: EdgeInsets.only(top: 20),
               ),
             ),
           );

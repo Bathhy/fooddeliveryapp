@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -15,6 +16,9 @@ class DetailfoodInfo extends StatefulWidget {
 }
 
 class _DetailfoodInfoState extends State<DetailfoodInfo> {
+
+  DetailControler _controler = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,17 +33,18 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
           ),
+          SizedBox(height: 100),
+          Container(
+            margin: EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: CustomButton(
+              title: 'Add to cart',
+              callback: () {
+                Get.to(CartOrder());
+              },
+            ),
+          ),
         ],
-      ),
-      bottomSheet: Container(
-        margin: EdgeInsets.only(bottom: 20),
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: CustomButton(
-          title: 'Add to cart',
-          callback: () {
-            Get.to(CartOrder());
-          },
-        ),
       ),
     );
   }
@@ -55,7 +60,9 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
         color: Colors.black,
       ),
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline))
+        IconButton(onPressed: () {
+          _controler.addToFav(widget.food);
+        }, icon: Icon(Icons.favorite_outline))
       ],
     );
   }

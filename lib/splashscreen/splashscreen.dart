@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/controller/splash_controller.dart';
 import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -13,6 +14,12 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  final SplashController _splashcontrol = Get.find();
+  void initState() {
+    _splashcontrol.intiSplashScreen();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
