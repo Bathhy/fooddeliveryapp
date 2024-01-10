@@ -3,6 +3,7 @@ import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
+import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
 import 'package:fodddelieveryapp/search/search_food.dart';
@@ -24,7 +25,7 @@ class _HomescreenState extends State<Homescreen>
 
   final HomeController _homeController = Get.find();
   final BottomNaviController botcontroller = Get.find();
-
+  final DetailController _cartController = Get.find();
   @override
   void initState() {
     _tabController = TabController(length: categorys.length, vsync: this);
@@ -58,13 +59,6 @@ class _HomescreenState extends State<Homescreen>
                     color: Colors.grey,
                   ),
                 ),
-                // GetBuilder<AddToCartVM>(
-                //         // specify type as Controller
-                //         init: AddToCartVM(), // intialize with the Controller
-                //         builder: (value) => CartCounter(
-                //           count: value.lst.length.toString() ?? "0",
-                //         ),
-                //       ),
               ],
             ),
           ),

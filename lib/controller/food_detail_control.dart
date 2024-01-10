@@ -34,4 +34,14 @@ class DetailController extends GetxController {
         backgroundColor: colorOrange, colorText: colorGrey);
     update();
   }
+
+  void CartEmpty(Food food) {
+    foodcart.isEmpty;
+    update();
+  }
+
+  void favEmpty(Food food) {
+    favoriteFoods.isEmpty;
+    update();
+  }
 }

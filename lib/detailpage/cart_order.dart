@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
+import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
+import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
 class CartOrder extends StatefulWidget {
@@ -14,6 +16,7 @@ class CartOrder extends StatefulWidget {
 }
 
 class _CartOrderState extends State<CartOrder> {
+  final DetailController _cartcontrol = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,16 +24,55 @@ class _CartOrderState extends State<CartOrder> {
       appBar: _MyCartAppbar(),
       body: Column(
         children: [
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 90),
+              child: Image.asset(imageswipe)),
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: CartListview(),
+              child: _buildCartContent(),
             ),
           ),
           _customButton(),
         ],
       ),
     );
+  }
+
+  Widget _buildCartContent() {
+    if (_cartcontrol.foodcart.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.shopping_cart_outlined,
+              size: 150,
+              color: Colors.grey[400],
+            ),
+            Text(
+              'No orders yet',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+            Text(
+              'Hit the orange button down \n below to Create an order',
+              style: TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: CartListview(),
+      );
+    }
   }
 
   AppBar _MyCartAppbar() {
@@ -57,6 +99,6 @@ class _CartOrderState extends State<CartOrder> {
     return Container(
         margin: EdgeInsets.only(bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 30),
-        child: CustomButton(title: 'Complete Order', callback: () {}));
+        child: CustomButton(title: 'start Ordering', callback: () {}));
   }
 }

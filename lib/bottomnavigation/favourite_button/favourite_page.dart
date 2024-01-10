@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
+import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
 class Myfavourite extends StatefulWidget {
@@ -40,17 +41,57 @@ class _MyfavouriteState extends State<Myfavourite> {
         ),
         body: Column(
           children: [
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 90),
+                child: Image.asset(imageswipe)),
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CartListview(
-                  
-                ),
+                child: _buildFavcontent(),
               ),
-            )
+            ),
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+                child: CustomButton(title: "Start ordering", callback: () {}))
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildFavcontent() {
+    if (_favcontr.foodcart.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.favorite_outline_rounded,
+              size: 150,
+              color: Colors.grey[400],
+            ),
+            Text(
+              'No favourite foods yet',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+            Text(
+              'Hit the orange button down \n below to Create an order',
+              style: TextStyle(
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: CartListview(),
+      );
+    }
   }
 }

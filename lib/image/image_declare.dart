@@ -17,3 +17,4 @@ const imageMS = 'assets/images/milkshake.jpg';
 const imageSOB = 'assets/images/SOB drink.jpg';
 const imagesour = 'assets/images/sour snack.jpg';
 const imagecheese = 'assets/images/cheese sauce2.jpg';
+const imageswipe = 'assets/images/swip.png';
