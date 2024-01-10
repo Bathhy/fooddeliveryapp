@@ -47,14 +47,25 @@ class _HomescreenState extends State<Homescreen>
             padding: const EdgeInsets.only(
               right: 15,
             ),
-            child: IconButton(
-              onPressed: () {
-                Get.to(CartOrder());
-              },
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.grey,
-              ),
+            child: Stack(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.to(CartOrder());
+                  },
+                  icon: Icon(
+                    Icons.shopping_cart_outlined,
+                    color: Colors.grey,
+                  ),
+                ),
+                // GetBuilder<AddToCartVM>(
+                //         // specify type as Controller
+                //         init: AddToCartVM(), // intialize with the Controller
+                //         builder: (value) => CartCounter(
+                //           count: value.lst.length.toString() ?? "0",
+                //         ),
+                //       ),
+              ],
             ),
           ),
         ],
@@ -98,7 +109,7 @@ class Drawerclass extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             onTap: () {
-              Get.to(Myprofile());
+              Get.to(() => Myprofile());
             },
           ),
           Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),
@@ -110,7 +121,7 @@ class Drawerclass extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             onTap: () {
-              Get.to(CartOrder());
+              Get.to(() => CartOrder());
             },
           ),
           Divider(color: Colors.white, indent: 60.0, endIndent: 58.0),

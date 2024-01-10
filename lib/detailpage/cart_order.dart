@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
-// import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:get/get.dart';
 
 class CartOrder extends StatefulWidget {
@@ -16,7 +14,6 @@ class CartOrder extends StatefulWidget {
 }
 
 class _CartOrderState extends State<CartOrder> {
-  // final List<Food> foodlist;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +24,7 @@ class _CartOrderState extends State<CartOrder> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: CartListview(
-                foodlist: Food.foodlist,
-              ),
+              child: CartListview(),
             ),
           ),
           _customButton(),

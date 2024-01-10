@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,7 @@ class Myfavourite extends StatefulWidget {
 }
 
 class _MyfavouriteState extends State<Myfavourite> {
+  final DetailController _favcontr = Get.find();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,7 +44,7 @@ class _MyfavouriteState extends State<Myfavourite> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: CartListview(
-                  foodlist: Food.foodlist,
+                  
                 ),
               ),
             )

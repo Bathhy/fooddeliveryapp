@@ -10,7 +10,7 @@ class Profilecard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(profil_acc_bank());
+        Get.to(() => profil_acc_bank());
       },
       child: Container(
         decoration: BoxDecoration(

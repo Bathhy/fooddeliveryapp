@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:get/get.dart';
 
 class CartListview extends StatelessWidget {
-  const CartListview({
+  CartListview({
     super.key,
-    required this.foodlist,
   });
-  final List<Food> foodlist;
+
+  final DetailController _controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: ListView.builder(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: foodlist.length,
+    return GetBuilder<DetailController>(builder: (controller) {
+      return ListView.builder(
+        itemCount: _controller.foodcart.length,
         itemBuilder: (context, index) {
+          final food = _controller.foodcart[index];
           return Container(
             margin: EdgeInsets.only(top: 5),
             child: Slidable(
@@ -30,9 +29,11 @@ class CartListview extends StatelessWidget {
                     width: 15,
                   ),
                   SlidableAction(
-                    onPressed: (context) {},
+                    onPressed: (context) {
+                      _controller.addToFav(_controller.foodcart[index]);
+                    },
                     backgroundColor: Colors.green,
-                    icon: Icons.shopping_cart_outlined,
+                    icon: Icons.favorite_outline,
                     spacing: 12,
                     autoClose: true,
                     borderRadius: BorderRadius.circular(10),
@@ -41,7 +42,9 @@ class CartListview extends StatelessWidget {
                     width: 5,
                   ),
                   SlidableAction(
-                    onPressed: (context) {},
+                    onPressed: (context) {
+                      _controller.removeFromCart(food);
+                    },
                     backgroundColor: Colors.red,
                     icon: Icons.delete,
                     spacing: 12,
@@ -63,7 +66,7 @@ class CartListview extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(40),
                           child: Image.asset(
-                            foodlist[index].img,
+                            food.img,
                             height: 80,
                             width: 80,
                             fit: BoxFit.fill,
@@ -78,7 +81,7 @@ class CartListview extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          foodlist[index].name,
+                          food.name,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -91,28 +94,24 @@ class CartListview extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              foodlist[index].price,
+                              food.price,
                               style: TextStyle(
                                   color: colorOrange,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
-                              width: 30,
+                              width: 10,
                             ),
                             Container(
-                              width: 70,
+                              padding: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 color: colorOrange,
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 10,
-                                  right: 10,
-                                  bottom: 5,
-                                  top: 5,
-                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -124,12 +123,16 @@ class CartListview extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15),
                                     ),
-                                    Text(
-                                      "1",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Text(
+                                        "1",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
                                       ),
                                     ),
                                     Text(
@@ -154,7 +157,7 @@ class CartListview extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
+      );
+    });
   }
 }

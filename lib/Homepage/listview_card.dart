@@ -21,7 +21,7 @@ class Mybuildcard extends StatelessWidget {
           final Food food = foodlist[index];
           return GestureDetector(
             onTap: () {
-              Get.to(DetailfoodInfo(food: food));
+              Get.to(() => DetailfoodInfo(food: food));
             },
             child: LayoutBuilder(
               builder: (context, constraint) {
