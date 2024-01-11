@@ -52,13 +52,28 @@ class _HomescreenState extends State<Homescreen>
               children: [
                 IconButton(
                   onPressed: () {
-                    Get.to(CartOrder());
+                    Get.to(() => CartOrder());
                   },
                   icon: Icon(
                     Icons.shopping_cart_outlined,
                     color: Colors.grey,
+                    size: 30,
                   ),
                 ),
+                Positioned(
+                    top: 10,
+                    left: 0,
+                    bottom: 16,
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor: colorOrange,
+                      child: Center(
+                        child: Text(
+                          "7",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )),
               ],
             ),
           ),
@@ -183,11 +198,13 @@ class Topofhome extends StatelessWidget {
               padding: EdgeInsets.only(
                 left: 20,
               ),
-              child: Text('Delicious',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 34)),
+              child: Text(
+                'Delicious',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 34),
+              ),
             ),
           ],
         ),
@@ -207,7 +224,7 @@ class Topofhome extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Get.to(SearchPage());
+                Get.to(() => SearchPage());
               },
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),

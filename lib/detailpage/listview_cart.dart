@@ -30,9 +30,9 @@ class CartListview extends StatelessWidget {
                   ),
                   SlidableAction(
                     onPressed: (context) {
-                      _controller.addToFav(_controller.foodcart[index]);
+                      _controller.addToCart(food);
                     },
-                    backgroundColor: Colors.green,
+                    backgroundColor: Colors.red,
                     icon: Icons.favorite_outline,
                     spacing: 12,
                     autoClose: true,

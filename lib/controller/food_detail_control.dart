@@ -4,16 +4,21 @@ import 'package:get/get.dart';
 
 class DetailController extends GetxController {
   List<Food> foodcart = [];
-  RxList<Food> favoriteFoods = <Food>[].obs;
+
+  List<Food> favoriteFoods = [];
+
+  RxBool isIconColored = false.obs;
 
   void addToFav(Food food) {
     // Check if the food is not already in favorites
     if (!favoriteFoods.contains(food)) {
       favoriteFoods.add(food);
+      update();
+      Get.snackbar("Success", "Add to favourite Successfully",
+          backgroundColor: colorOrange, colorText: colorGrey);
+          
     }
-    Get.snackbar("Success", "Add Successfully",
-        backgroundColor: colorOrange, colorText: colorGrey);
-    update();
+    changeColor();
   }
 
   void removeFromFav(Food food) {
@@ -30,18 +35,30 @@ class DetailController extends GetxController {
   void addToCart(Food food) {
     // Add the food to the cart (if needed)
     foodcart.add(food);
-    Get.snackbar("Success", "Add Successfully",
+    Get.snackbar("Success", "Add to Cart Successfully",
         backgroundColor: colorOrange, colorText: colorGrey);
     update();
   }
 
   void CartEmpty(Food food) {
-    foodcart.isEmpty;
+    foodcart.clear();
     update();
   }
 
   void favEmpty(Food food) {
-    favoriteFoods.isEmpty;
+    favoriteFoods.clear();
     update();
+  }
+
+  // void changecolor(){
+  //   if(iconColorIndex.value == Colors.grey){
+  //     iconColorIndex.value= 1;
+  //   }
+  //   else{
+  //     iconColorIndex.value = 0;
+  //   }
+  // }
+  void changeColor() {
+    isIconColored.value = !isIconColored.value;
   }
 }

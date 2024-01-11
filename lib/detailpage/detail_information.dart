@@ -58,11 +58,16 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
         color: Colors.black,
       ),
       actions: [
-        IconButton(
+        Obx(
+          () => IconButton(
             onPressed: () {
               _controler.addToFav(widget.food);
             },
-            icon: Icon(Icons.favorite_outline))
+            icon: Icon(Icons.favorite_border),
+            color:
+                _controler.isIconColored.value == 0 ? colorGrey : colorOrange,
+          ),
+        )
       ],
     );
   }

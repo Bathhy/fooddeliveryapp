@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/favourite_listview.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
@@ -60,38 +61,42 @@ class _MyfavouriteState extends State<Myfavourite> {
   }
 
   Widget _buildFavcontent() {
-    if (_favcontr.foodcart.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.favorite_outline_rounded,
-              size: 150,
-              color: Colors.grey[400],
-            ),
-            Text(
-              'No favourite foods yet',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
-            ),
-            Text(
-              'Hit the orange button down \n below to Create an order',
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
-            ),
-          ],
-        ),
-      );
-    } else {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: CartListview(),
-      );
-    }
+    return GetBuilder(
+        init: _favcontr,
+        builder: (controller) {
+          if (_favcontr.favoriteFoods.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.favorite_outline_rounded,
+                    size: 150,
+                    color: Colors.grey[400],
+                  ),
+                  Text(
+                    'No favourite foods yet',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                  Text(
+                    'Hit the orange button down \n below to Create an order',
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: favListview(),
+            );
+          }
+        });
   }
 }
