@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class DetailController extends GetxController {
   List<Food> foodcart = [];
 
-List<Food> selectedFoods = [];
+  List<Food> selectedFoods = [];
   List<Food> favoriteFoods = [];
 
   RxBool isIconColored = false.obs;
@@ -33,6 +33,7 @@ List<Food> selectedFoods = [];
     foodcart.remove(food);
     cartCount--;
     calculateAmount(food);
+    calculateAmount(food);
     update();
   }
 
@@ -56,7 +57,15 @@ List<Food> selectedFoods = [];
   }
 
   void calculateAmount(Food food) {
-     totalprice.value = selectedFoods.fold<int>(0, (sum, food) => sum + int.parse(food.price));totalAmount.value = totalprice.value.toString();
+    int total = 0;
+
+    for (var food in foodcart) {
+      int price = int.tryParse(food.price.replaceAll('\$', '')) ?? 0;
+      total += price;
+    }
+
+    totalprice.value = total;
+    totalAmount.value = '\$$total';
   }
 
   void changeColor() {

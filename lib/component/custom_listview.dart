@@ -67,7 +67,7 @@ class Food {
         imagecate: [imageSOB, imageblue, imageFrape, imageMS]),
     Food(
         img: imageMS,
-        name: "Chocolate Milkshake",
+        name: "Chocolate Frappe",
         price: "\$9",
         category: "Drink",
         imagecate: [

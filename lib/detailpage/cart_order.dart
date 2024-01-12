@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
-import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
@@ -102,7 +101,7 @@ class _CartOrderState extends State<CartOrder> {
         margin: EdgeInsets.only(bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: CustomButton(
-            title: 'start Ordering',
+            title: 'Start Ordering',
             callback: () {
               Get.to(() => Mypaymentpage());
             }));
