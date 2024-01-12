@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/favourite_listview.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
-import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
@@ -51,9 +51,6 @@ class _MyfavouriteState extends State<Myfavourite> {
                 child: _buildFavcontent(),
               ),
             ),
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
-                child: CustomButton(title: "Start ordering", callback: () {}))
           ],
         ),
       ),

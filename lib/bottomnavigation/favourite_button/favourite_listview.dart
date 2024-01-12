@@ -25,20 +25,7 @@ class favListview extends StatelessWidget {
               motion: BehindMotion(),
               children: [
                 SizedBox(
-                  width: 15,
-                ),
-                SlidableAction(
-                  onPressed: (context) {
-                    _controller.addToFav(foodfav);
-                  },
-                  backgroundColor: Colors.red,
-                  icon: Icons.favorite_outline,
-                  spacing: 12,
-                  autoClose: true,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                SizedBox(
-                  width: 5,
+                  width: 70,
                 ),
                 SlidableAction(
                   onPressed: (context) {

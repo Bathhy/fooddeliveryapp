@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
+import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
@@ -69,7 +71,7 @@ class _CartOrderState extends State<CartOrder> {
       );
     } else {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: CartListview(),
       );
     }
@@ -99,6 +101,10 @@ class _CartOrderState extends State<CartOrder> {
     return Container(
         margin: EdgeInsets.only(bottom: 20),
         padding: EdgeInsets.symmetric(horizontal: 30),
-        child: CustomButton(title: 'start Ordering', callback: () {}));
+        child: CustomButton(
+            title: 'start Ordering',
+            callback: () {
+              Get.to(() => Mypaymentpage());
+            }));
   }
 }

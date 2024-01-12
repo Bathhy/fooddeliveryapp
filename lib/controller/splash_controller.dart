@@ -5,7 +5,7 @@ import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
 import 'package:get/get.dart';
 
-class SplashController extends GetxController{
+class SplashController extends GetxController {
   late Timer? _timer;
 
   void intiSplashScreen() async {

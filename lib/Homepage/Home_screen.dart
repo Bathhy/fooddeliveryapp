@@ -63,14 +63,16 @@ class _HomescreenState extends State<Homescreen>
                 Positioned(
                     top: 10,
                     left: 0,
-                    bottom: 16,
+                    bottom: 20,
                     child: CircleAvatar(
                       radius: 35,
                       backgroundColor: colorOrange,
                       child: Center(
-                        child: Text(
-                          "7",
-                          style: TextStyle(color: Colors.white),
+                        child: Obx(
+                          () => Text(
+                            _cartController.cartCount.value.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
                     )),
