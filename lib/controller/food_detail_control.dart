@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:get/get.dart';
@@ -70,5 +72,19 @@ class DetailController extends GetxController {
 
   void changeColor() {
     isIconColored.value = !isIconColored.value;
+  }
+
+  void checkcartEmpty() {
+    if (foodcart.isEmpty) {
+      Get.snackbar(
+        "No Items",
+        "Please Add food to Cart",
+        backgroundColor: Colors.red[900],
+        colorText: colorGrey,
+        snackPosition: SnackPosition.TOP,
+      );
+    } else {
+      Get.to(() => Mypaymentpage());
+    }
   }
 }

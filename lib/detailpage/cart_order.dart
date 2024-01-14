@@ -103,7 +103,7 @@ class _CartOrderState extends State<CartOrder> {
         child: CustomButton(
             title: 'Start Ordering',
             callback: () {
-              Get.to(() => Mypaymentpage());
+              _cartcontrol.checkcartEmpty();
             }));
   }
 }

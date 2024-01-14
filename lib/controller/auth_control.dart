@@ -13,7 +13,8 @@ class Authcontroller extends GetxController {
   final RcPassword = TextEditingController();
   final Lemail = TextEditingController();
   final Lpassword = TextEditingController();
-
+ var ispasshidden = true.obs;
+final TextEditingController passwordController = TextEditingController();
   void register(String email, String password, String cpassword) async {
     if (email == "" || password == "" || cpassword == "") {
       Get.snackbar("Error", "Field null");
@@ -45,5 +46,8 @@ class Authcontroller extends GetxController {
 
   bool isLogin() {
     return box.read('isLogin') ?? false;
+  }
+  void toggleObscureText() {
+    ispasshidden.value = !ispasshidden.value;
   }
 }

@@ -7,8 +7,8 @@ import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
 class MyLoginPage extends StatelessWidget {
-  MyLoginPage({super.key});
-
+  MyLoginPage({Key? key}) : super();
+  final Authcontroller authController = Get.find();
   final LoginTabController _tabcontrol = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -76,119 +76,160 @@ class MyLoginPage extends StatelessWidget {
   }
 
   Widget _LoginView() {
-    final Authcontroller _authController = Get.find();
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextFormField(
-            controller: _authController.Lemail,
-            decoration: const InputDecoration(
-              labelText: 'Email Address',
-            ),
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextFormField(
-            controller: _authController.Lpassword,
-            obscureText: true,
-            obscuringCharacter: "*",
-            decoration: const InputDecoration(
-              labelText: 'Password',
-            ),
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-        const SizedBox(height: 30),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            TextButton(
-              child: const Text(
-                "Forget Passcode?",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: colorOrange,
-                  fontWeight: FontWeight.bold,
-                ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextFormField(
+              controller: authController.Lemail,
+              decoration: const InputDecoration(
+                labelText: 'Email Address',
               ),
-              onPressed: () {},
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-          ],
-        ),
-        SizedBox(height: 60),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-          child: CustomButton(
-            title: "Login",
-            callback: () {
-              // Call the login method from AuthController
-              _authController.login(
-                _authController.Lemail.text,
-                _authController.Lpassword.text,
-              );
-            },
           ),
-        ),
-      ],
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Obx(
+              () => TextFormField(
+                controller: authController.Lpassword,
+                obscureText: authController.ispasshidden.value,
+                obscuringCharacter: "*",
+                decoration: InputDecoration(
+                    labelText: 'Password',
+                    suffixIcon: InkWell(
+                      child: Icon(
+                          authController.ispasshidden.value
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.grey,
+                          size: 25),
+                      onTap: () {
+                        authController.toggleObscureText();
+                      },
+                    )),
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              TextButton(
+                child: const Text(
+                  "Forget Passcode?",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: colorOrange,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          SizedBox(height: 60),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            child: CustomButton(
+              title: "Login",
+              callback: () {
+                // Call the login method from AuthController
+                authController.login(
+                  authController.Lemail.text,
+                  authController.Lpassword.text,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _SignUpView() {
     final Authcontroller _authController = Get.find();
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextFormField(
-            controller: _authController.Remail,
-            decoration: const InputDecoration(
-              labelText: 'Email Address',
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextFormField(
+              controller: _authController.Remail,
+              decoration: const InputDecoration(
+                labelText: 'Email Address',
+              ),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextFormField(
-            controller: _authController.Rpassword,
-            obscureText: true,
-            obscuringCharacter: "*",
-            decoration: const InputDecoration(
-              labelText: 'Password',
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Obx(
+              () => TextFormField(
+                controller: _authController.Rpassword,
+                obscureText: authController.ispasshidden.value,
+                obscuringCharacter: "*",
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  suffixIcon: InkWell(
+                    child: Icon(
+                        authController.ispasshidden.value
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.grey,
+                        size: 25),
+                    onTap: () {
+                      authController.toggleObscureText();
+                    },
+                  ),
+                ),
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
-            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-        ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextFormField(
-            controller: _authController.RcPassword,
-            decoration: const InputDecoration(
-              labelText: 'Confirm Password',
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Obx(
+              () => TextFormField(
+                controller: _authController.RcPassword,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  suffixIcon: InkWell(
+                    child: Icon(
+                        authController.ispasshidden.value
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.grey,
+                        size: 25),
+                    onTap: () {
+                      authController.toggleObscureText();
+                    },
+                  ),
+                ),
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
-            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-        ),
-        const SizedBox(height: 30),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-          child: CustomButton(
-            title: "Sign Up",
-            callback: () {
-              _authController.register(
-                  _authController.Remail.text,
-                  _authController.Rpassword.text,
-                  _authController.RcPassword.text);
-            },
+          const SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            child: CustomButton(
+              title: "Sign Up",
+              callback: () {
+                _authController.register(
+                    _authController.Remail.text,
+                    _authController.Rpassword.text,
+                    _authController.RcPassword.text);
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

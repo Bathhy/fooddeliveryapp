@@ -12,7 +12,7 @@ class SplashController extends GetxController {
     Authcontroller authController = Get.find();
 
     _timer = Timer(
-      Duration(seconds: 3),
+      Duration(seconds: 4),
       () => authController.isLogin()
           ? Get.offAll(() => MyBottomNavigation())
           : Get.offAll(() => MyLoginPage()),
