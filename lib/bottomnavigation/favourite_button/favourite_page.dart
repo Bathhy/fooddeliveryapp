@@ -77,7 +77,7 @@ class _MyfavouriteState extends State<Myfavourite> {
                         fontSize: 15),
                   ),
                   Text(
-                    'Hit the orange button down \n below to Create an order',
+                    'Please add your favourite food here',
                     style: TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.bold,

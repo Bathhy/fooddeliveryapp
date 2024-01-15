@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 
 class Food {
@@ -20,7 +21,25 @@ class Food {
     this.category = category;
     this.imagecate = imagecate ?? [];
   }
+  Map<String, dynamic> toMap() {
+    return {
+      'name': this.name,
+      'price': this.price,
+      'category': this.category,
+      'imagecate': this.imagecate,
+    };
+  }
 
+  // Updated fromMap factory method
+  factory Food.fromMap(Map<String, dynamic> map) {
+    return Food(
+      img: map['img'] ?? "", // Add 'img' field here
+      name: map['name'] ?? "",
+      price: map['price'] ?? "",
+      category: map['category'],
+      imagecate: List<String>.from(map['imagecate'] ?? []),
+    );
+  }
   static List<Food> foodlist = [
     Food(
       img: imageDumpling,

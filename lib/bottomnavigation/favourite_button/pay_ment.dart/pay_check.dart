@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
@@ -95,7 +96,11 @@ class Mypaymentpage extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 40),
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CustomButton(title: "Complete Order", callback: () {})),
+                child: CustomButton(
+                    title: "Complete Order",
+                    callback: () {
+                      Get.to(() => Myhistory());
+                    })),
           )
         ],
       ),

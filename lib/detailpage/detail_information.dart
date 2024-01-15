@@ -63,9 +63,8 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
             onPressed: () {
               _controler.addToFav(widget.food);
             },
-            icon: Icon(Icons.favorite_border),
-            color:
-                _controler.isIconColored.value == 0 ? colorGrey : colorOrange,
+            icon: Icon(Icons.favorite),
+            color: _controler.isIconColored.value ? colorOrange : Colors.grey,
           ),
         )
       ],

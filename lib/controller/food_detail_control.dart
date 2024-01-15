@@ -15,7 +15,6 @@ class DetailController extends GetxController {
   var totalprice = 0.obs;
   RxString totalAmount = ''.obs;
   void addToFav(Food food) {
-    // Check if the food is not already in favorites
     if (!favoriteFoods.contains(food)) {
       favoriteFoods.add(food);
 
