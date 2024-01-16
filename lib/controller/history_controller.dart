@@ -1,7 +1,16 @@
+import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
+
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+
 
 class HistoryController extends GetxController{
-  final Box = GetStorage();
-  
+
+  List<HistoryModel> orderHistory = [];
+
+  void addToHistory(HistoryModel historyModel) {
+    orderHistory.add(historyModel);
+    update();
+  }
+
+
 }

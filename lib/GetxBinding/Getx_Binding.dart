@@ -1,5 +1,6 @@
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/controller/profile_controller.dart';
@@ -17,5 +18,6 @@ class FoodBinding extends Bindings {
     Get.put(Authcontroller());
     Get.put(SplashController());
     Get.put(DetailController());
+    Get.put(HistoryController());
   }
 }

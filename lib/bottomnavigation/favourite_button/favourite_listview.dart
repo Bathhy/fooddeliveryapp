@@ -21,7 +21,6 @@ class favListview extends StatelessWidget {
           margin: EdgeInsets.only(top: 5),
           child: Slidable(
             endActionPane: ActionPane(
-              // extentRatio: 0.5,
               motion: BehindMotion(),
               children: [
                 SizedBox(

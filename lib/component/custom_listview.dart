@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:fodddelieveryapp/image/image_declare.dart';
 
 class Food {
@@ -44,50 +44,50 @@ class Food {
     Food(
       img: imageDumpling,
       name: "Hot Dumpling",
-      price: "\$19",
+      price: "19",
       category: "Food",
       imagecate: [imageDumpling, imageSpag, imagepPizza, imagepancake],
     ),
     Food(
         img: imageSpag,
         name: "Spaghetti",
-        price: "\$23",
+        price: "23",
         category: "Food",
         imagecate: [imageSpag, imageDumpling, imagepPizza, imagepancake]),
     Food(
         img: imagepPizza,
         name: "Ham Pizza",
-        price: "\$15",
+        price: "15",
         category: "Food",
         imagecate: [imagepPizza, imageSpag, imageDumpling, imagepancake]),
     Food(
         img: imagepancake,
         name: "Japanese Pancake",
-        price: "\$9",
+        price: "9",
         category: "Food",
         imagecate: [imagepancake, imageDumpling, imageSpag, imagepPizza]),
     Food(
         img: imageblue,
         name: "Blue Lagoon",
-        price: "\$9",
+        price: "9",
         category: "Drink",
         imagecate: [imageblue, imageFrape, imageSOB, imageMS]),
     Food(
         img: imageFrape,
         name: "Kampuchea frappe",
-        price: "\$9",
+        price: "9",
         category: "Drink",
         imagecate: [imageFrape, imageblue, imageSOB, imageMS]),
     Food(
         img: imageSOB,
         name: "Fire mocktail",
-        price: "\$9",
+        price: "9",
         category: "Drink",
         imagecate: [imageSOB, imageblue, imageFrape, imageMS]),
     Food(
         img: imageMS,
         name: "Chocolate Frappe",
-        price: "\$9",
+        price: "9",
         category: "Drink",
         imagecate: [
           imageMS,
@@ -98,25 +98,25 @@ class Food {
     Food(
         img: imagelays,
         name: "Spicy cheetos",
-        price: "\$6",
+        price: "6",
         category: "Snacks",
         imagecate: [imagelays, imagesour]),
     Food(
         img: imagesour,
         name: "Juicy cheetos",
-        price: "\$6",
+        price: "6",
         category: "Snacks",
         imagecate: [imagesour, imagelays]),
     Food(
         img: imagespicy,
         name: "Cheese sauce",
-        price: "\$2",
+        price: "2",
         category: "Sauces",
         imagecate: [imagespicy, imagecheese]),
     Food(
         img: imagecheese,
         name: "Cheese sauce",
-        price: "\$2",
+        price: "2",
         category: "Sauces",
         imagecate: [
           imagecheese,

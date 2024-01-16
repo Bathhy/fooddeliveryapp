@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
@@ -99,7 +98,7 @@ class Mypaymentpage extends StatelessWidget {
                 child: CustomButton(
                     title: "Complete Order",
                     callback: () {
-                      Get.to(() => Myhistory());
+                      _numCountControl.completeOrder();
                     })),
           )
         ],
