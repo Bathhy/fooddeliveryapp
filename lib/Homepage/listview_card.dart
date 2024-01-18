@@ -69,7 +69,7 @@ class Mybuildcard extends StatelessWidget {
                                   top: 5,
                                 ),
                                 child: Text(
-                                  food.price,
+                                  '\$ ${food.price}',
                                   style: TextStyle(
                                       color: colorOrange,
                                       fontSize: 15,

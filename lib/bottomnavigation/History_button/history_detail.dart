@@ -13,34 +13,30 @@ class HistoryOrdDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _appbarHistory(),
-      body: HistoryOrderView(
-        historyModel: historyModel,
+      bottomNavigationBar: _Totalamount(),
+      body: Column(
+        children: [
+          Expanded(child: HistoryOrderView(historyModel: historyModel)),
+        ],
       ),
-      bottomSheet: _Totalamount(),
+      // bottomSheet: _Totalamount(),
     );
   }
 
   Widget _Totalamount() {
     final DetailController _controller = Get.find();
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 50),
+      padding: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(color: colorOrange),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            "Total:",
+            "Total:  ${_controller.totalAmount}",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
               color: colorGrey,
-            ),
-          ),
-          Obx(
-            () => Text(
-              ' ${_controller.totalAmount}',
-              style: TextStyle(
-                  color: colorGrey, fontSize: 25, fontWeight: FontWeight.w700),
             ),
           ),
         ],

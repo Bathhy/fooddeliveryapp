@@ -32,7 +32,7 @@ class _MyfavouriteState extends State<Myfavourite> {
           backgroundColor: colorGrey,
           leading: IconButton(
             onPressed: () {
-              Get.back();
+              // Get.back();
             },
             icon: const Icon(Icons.arrow_back_ios),
             color: Colors.black,

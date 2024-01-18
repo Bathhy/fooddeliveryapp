@@ -18,13 +18,14 @@ class favListview extends StatelessWidget {
       itemBuilder: (context, index) {
         final foodfav = _controller.favoriteFoods[index];
         return Container(
-          margin: EdgeInsets.only(top: 5),
+          margin: EdgeInsets.only(top: 10),
           child: Slidable(
             endActionPane: ActionPane(
               motion: BehindMotion(),
+              extentRatio: 0.3,
               children: [
                 SizedBox(
-                  width: 70,
+                  width: 10,
                 ),
                 SlidableAction(
                   onPressed: (context) {
@@ -32,7 +33,7 @@ class favListview extends StatelessWidget {
                   },
                   backgroundColor: Colors.red,
                   icon: Icons.delete,
-                  spacing: 12,
+                  spacing: 10,
                   autoClose: true,
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -79,7 +80,7 @@ class favListview extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            foodfav.price,
+                            '\$ ${foodfav.price}',
                             style: TextStyle(
                                 color: colorOrange,
                                 fontSize: 17,
@@ -137,7 +138,7 @@ class favListview extends StatelessWidget {
                   ),
                 ],
               ),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
             ),
           ),
         );

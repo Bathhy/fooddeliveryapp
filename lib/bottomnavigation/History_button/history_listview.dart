@@ -61,7 +61,7 @@ class HistoryOrderView extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          historyModel.items[index].price,
+                          ' \$ ${historyModel.items[index].price}',
                           style: TextStyle(
                               color: colorOrange,
                               fontSize: 17,

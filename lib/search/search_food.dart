@@ -44,6 +44,7 @@ class _SearchPageState extends State<SearchPage> {
             search(value);
           },
           style: TextStyle(fontWeight: FontWeight.bold),
+          autofocus: true,
           decoration: InputDecoration(
             border: InputBorder.none,
             iconColor: Colors.black,
@@ -154,7 +155,7 @@ class _SearchPageState extends State<SearchPage> {
                                           top: 5,
                                         ),
                                         child: Text(
-                                          item.price,
+                                          '\$ ${item.price}',
                                           style: TextStyle(
                                               color: colorOrange,
                                               fontSize: 15,

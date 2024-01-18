@@ -91,9 +91,9 @@ class _MyhistoryState extends State<Myhistory> {
         HistoryModel historyModel = _controller.orderHistory[index];
         return InkWell(
           onTap: () {
-            Get.to(HistoryOrdDetail(
-              historyModel: historyModel,
-            ));
+            Get.to(() => HistoryOrdDetail(
+                  historyModel: historyModel,
+                ));
           },
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -130,7 +130,7 @@ class _MyhistoryState extends State<Myhistory> {
                         SizedBox(
                           height: 5,
                         ),
-                        Text('Total Amount: ${historyModel.totalAmount}'),
+                        Text('Total Amount: \$ ${historyModel.totalAmount}'),
                         SizedBox(
                           height: 5,
                         ),

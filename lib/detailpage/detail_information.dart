@@ -155,7 +155,7 @@ class _DescriptionDetailpageState extends State<DescriptionDetailpage> {
         ),
         Container(
           child: Text(
-            widget.food.price,
+            '\$ ${widget.food.price}',
             style: TextStyle(
               color: colorOrange,
               fontSize: 20,
