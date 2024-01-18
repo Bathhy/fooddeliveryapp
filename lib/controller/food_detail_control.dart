@@ -32,7 +32,9 @@ class DetailController extends GetxController {
     foodcart.add(food);
     cartCount++;
     Get.snackbar("Success", "Add to Cart Successfully",
-        backgroundColor: colorOrange, colorText: colorGrey);
+        backgroundColor: colorOrange,
+        colorText: colorGrey,
+        duration: Duration(seconds: 3));
     calculateAmount(food);
     update();
   }
@@ -44,13 +46,11 @@ class DetailController extends GetxController {
 
   void checkcartEmpty() {
     if (foodcart.isEmpty) {
-      Get.snackbar(
-        "No Items",
-        "Please Add food to Cart",
-        backgroundColor: Colors.red[900],
-        colorText: colorGrey,
-        snackPosition: SnackPosition.TOP,
-      );
+      Get.snackbar("No Items", "Please Add food to Cart",
+          backgroundColor: Colors.red[900],
+          colorText: colorGrey,
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 3));
     } else {
       Get.to(() => Mypaymentpage());
     }
@@ -76,7 +76,9 @@ class DetailController extends GetxController {
 
       update();
       Get.snackbar("Success", "Add to favourite Successfully",
-          backgroundColor: colorOrange, colorText: colorGrey);
+          backgroundColor: colorOrange,
+          colorText: colorGrey,
+          duration: Duration(seconds: 3));
     }
     changeColor();
   }
@@ -115,8 +117,8 @@ class DetailController extends GetxController {
   void clearcart() {
     foodcart.clear();
     cartCount.value = 0;
-    totalprice.value = 0;
-    totalAmount.value = '';
+    // totalprice.value = 0;
+    // totalAmount.value = '';
     update();
   }
 }

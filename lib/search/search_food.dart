@@ -104,24 +104,23 @@ class _SearchPageState extends State<SearchPage> {
               final item = _dataList[index];
               return GestureDetector(
                 onTap: () {
-                  Get.to(DetailfoodInfo(
-                    food: item,
-                  ));
+                  Get.to(() => DetailfoodInfo(
+                        food: item,
+                      ));
                 },
                 child: Container(
                   child: LayoutBuilder(
                     builder: (context, constraint) {
                       return Container(
-                        width: 220,
                         child: Stack(
                           children: [
                             Positioned.fill(
-                              top: 40,
+                              top: 20,
                               child: Card(
                                 elevation: 4,
                                 surfaceTintColor: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30)),
+                                    borderRadius: BorderRadius.circular(20)),
                                 color: Colors.white,
                               ),
                             ),

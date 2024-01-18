@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_listview.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
 class HistoryOrdDetail extends StatelessWidget {
-  const HistoryOrdDetail({super.key});
+  final HistoryModel historyModel;
+  HistoryOrdDetail({super.key, required this.historyModel});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _appbarHistory(),
-      body: HistoryOrderView(),
+      body: HistoryOrderView(
+        historyModel: historyModel,
+      ),
       bottomSheet: _Totalamount(),
     );
   }
@@ -32,7 +36,6 @@ class HistoryOrdDetail extends StatelessWidget {
               color: colorGrey,
             ),
           ),
-          Text("Date:"),
           Obx(
             () => Text(
               ' ${_controller.totalAmount}',

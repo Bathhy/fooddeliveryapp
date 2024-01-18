@@ -8,7 +8,7 @@ class HistoryModel {
   List<Food> items;
 
   HistoryModel(this.orderDate, this.totalAmount, this.qty, this.items);
-  
 
-  String Dateformat()=> DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.parse(orderDate));
+  String Dateformat() =>
+      DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.parse(orderDate));
 }

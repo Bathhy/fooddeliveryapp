@@ -85,15 +85,17 @@ class _MyhistoryState extends State<Myhistory> {
   }
 
   Widget _listviewCard() {
-    return InkWell(
-      onTap: () {
-        Get.to(() => HistoryOrdDetail());
-      },
-      child: ListView.builder(
-        itemCount: _controller.orderHistory.length,
-        itemBuilder: (context, index) {
-          HistoryModel historyModel = _controller.orderHistory[index];
-          return Container(
+    return ListView.builder(
+      itemCount: _controller.orderHistory.length,
+      itemBuilder: (context, index) {
+        HistoryModel historyModel = _controller.orderHistory[index];
+        return InkWell(
+          onTap: () {
+            Get.to(HistoryOrdDetail(
+              historyModel: historyModel,
+            ));
+          },
+          child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
             margin: EdgeInsets.only(top: 5, bottom: 10),
             child: Stack(children: [
@@ -140,9 +142,9 @@ class _MyhistoryState extends State<Myhistory> {
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               ),
             ]),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:fodddelieveryapp/image/image_declare.dart';
 
 class Food {

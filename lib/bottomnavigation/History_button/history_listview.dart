@@ -5,7 +5,9 @@ import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:get/get.dart';
 
 class HistoryOrderView extends StatelessWidget {
+  final HistoryModel historyModel;
   const HistoryOrderView({
+    required this.historyModel,
     super.key,
   });
 
@@ -13,9 +15,8 @@ class HistoryOrderView extends StatelessWidget {
   Widget build(BuildContext context) {
     final HistoryController _controller = Get.find();
     return ListView.builder(
-      itemCount: _controller.orderHistory.length,
+      itemCount: historyModel.items.length,
       itemBuilder: (context, index) {
-        HistoryModel historyModel = _controller.orderHistory[index];
         return Container(
           margin: EdgeInsets.only(top: 5),
           padding: EdgeInsets.symmetric(horizontal: 20),
@@ -69,7 +70,6 @@ class HistoryOrderView extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                       
                       ],
                     )
                   ],
