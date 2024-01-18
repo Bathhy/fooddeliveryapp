@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/controller/history_controller.dart';
+import 'package:get/get.dart';
 
 class HistoryOrderView extends StatelessWidget {
-  const HistoryOrderView({super.key, required this.historyModel});
-
-  final HistoryModel historyModel;
+  const HistoryOrderView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final HistoryController _controller = Get.find();
     return ListView.builder(
-      itemCount: historyModel.items.length,
+      itemCount: _controller.orderHistory.length,
       itemBuilder: (context, index) {
-        final foodhis = historyModel.items[index];
+        HistoryModel historyModel = _controller.orderHistory[index];
         return Container(
           margin: EdgeInsets.only(top: 5),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -28,7 +32,7 @@ class HistoryOrderView extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(40),
                       child: Image.asset(
-                        foodhis.img,
+                        historyModel.items[index].img,
                         height: 80,
                         width: 80,
                         fit: BoxFit.fill,
@@ -43,7 +47,7 @@ class HistoryOrderView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      foodhis.name,
+                      historyModel.items[index].name,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -56,7 +60,7 @@ class HistoryOrderView extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          foodhis.price,
+                          historyModel.items[index].price,
                           style: TextStyle(
                               color: colorOrange,
                               fontSize: 17,
@@ -65,48 +69,7 @@ class HistoryOrderView extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: colorOrange,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "-",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Text(
-                                    "1",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "+",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
+                       
                       ],
                     )
                   ],

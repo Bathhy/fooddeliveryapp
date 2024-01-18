@@ -17,5 +17,6 @@ class HomeController extends GetxController {
   void filterByCategory(String catName) {
     final filterList = allList.where((food) => food.category == catName);
     foodList(filterList.toList());
+    update();
   }
 }

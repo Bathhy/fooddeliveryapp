@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 class Myhistory extends StatefulWidget {
   const Myhistory({super.key});
+  // final HistoryModel historyModel;
   @override
   State<Myhistory> createState() => _MyhistoryState();
 }
@@ -32,13 +33,54 @@ class _MyhistoryState extends State<Myhistory> {
         backgroundColor: colorGrey,
         leading: IconButton(
           onPressed: () {
-            Get.back();
+            // Get.back();
           },
           icon: const Icon(Icons.arrow_back_ios),
           color: Colors.black,
         ),
       ),
-      body: _listviewCard(),
+      body: Column(
+        children: [
+          Expanded(
+              child: Container(
+            child: _BuildHistoryempty(),
+          ))
+        ],
+      ),
+    );
+  }
+
+  Widget _BuildHistoryempty() {
+    if (_controller.orderHistory.isEmpty) {
+      return Center(
+        child: _BuildnoHistory(),
+      );
+    } else {
+      return Container(
+        child: _listviewCard(),
+      );
+    }
+  }
+
+  Widget _BuildnoHistory() {
+    return Column(
+      children: [
+        Icon(
+          Icons.shopping_cart_outlined,
+          size: 150,
+          color: Colors.grey[400],
+        ),
+        Text(
+          'No History yet',
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+        ),
+        Text(
+          'Please Order Something \n to show',
+          style: TextStyle(
+              color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15),
+        ),
+      ],
     );
   }
 
@@ -54,44 +96,50 @@ class _MyhistoryState extends State<Myhistory> {
           return Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
             margin: EdgeInsets.only(top: 5, bottom: 10),
-            child: Container(
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      // historyModel.items.first.img,
-                      imageperson,
-                      fit: BoxFit.fill,
+            child: Stack(children: [
+              Container(
+                height: 110,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(40),
+                      child: Image.asset(
+                        // historyModel.items.first.img,
+                        imageperson,
+                        height: 60,
+                        width: 60,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'TotalAmount: ',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Total: \$${historyModel.totalAmount}',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'DateTime : ${historyModel.orderDate} ',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text('Total Amount: ${historyModel.totalAmount}'),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text("Quantity: ${historyModel.qty}")
+                      ],
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               ),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            ),
+            ]),
           );
         },
       ),

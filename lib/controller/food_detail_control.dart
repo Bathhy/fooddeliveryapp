@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
@@ -20,22 +19,7 @@ class DetailController extends GetxController {
   var totalprice = 0.obs;
   RxString totalAmount = ''.obs;
 
-  void addToFav(Food food) {
-    if (!favoriteFoods.contains(food)) {
-      favoriteFoods.add(food);
-
-      update();
-      Get.snackbar("Success", "Add to favourite Successfully",
-          backgroundColor: colorOrange, colorText: colorGrey);
-    }
-    changeColor();
-  }
-
-  void removeFromFav(Food food) {
-    favoriteFoods.remove(food);
-    update();
-  }
-
+// cart controler
   void removeFromCart(Food food) {
     foodcart.remove(food);
     cartCount--;
@@ -58,9 +42,18 @@ class DetailController extends GetxController {
     update();
   }
 
-  void favEmpty(Food food) {
-    favoriteFoods.clear();
-    update();
+  void checkcartEmpty() {
+    if (foodcart.isEmpty) {
+      Get.snackbar(
+        "No Items",
+        "Please Add food to Cart",
+        backgroundColor: Colors.red[900],
+        colorText: colorGrey,
+        snackPosition: SnackPosition.TOP,
+      );
+    } else {
+      Get.to(() => Mypaymentpage());
+    }
   }
 
   void calculateAmount(Food food) {
@@ -75,22 +68,31 @@ class DetailController extends GetxController {
     totalAmount.value = '\$$total';
   }
 
-  void changeColor() {
-    isIconColored.value = !isIconColored.value;
+//fav controller
+
+  void addToFav(Food food) {
+    if (!favoriteFoods.contains(food)) {
+      favoriteFoods.add(food);
+
+      update();
+      Get.snackbar("Success", "Add to favourite Successfully",
+          backgroundColor: colorOrange, colorText: colorGrey);
+    }
+    changeColor();
   }
 
-  void checkcartEmpty() {
-    if (foodcart.isEmpty) {
-      Get.snackbar(
-        "No Items",
-        "Please Add food to Cart",
-        backgroundColor: Colors.red[900],
-        colorText: colorGrey,
-        snackPosition: SnackPosition.TOP,
-      );
-    } else {
-      Get.to(() => Mypaymentpage());
-    }
+  void removeFromFav(Food food) {
+    favoriteFoods.remove(food);
+    update();
+  }
+
+  void favEmpty(Food food) {
+    favoriteFoods.clear();
+    update();
+  }
+
+  void changeColor() {
+    isIconColored.value = !isIconColored.value;
   }
 
   void completeOrder() {
@@ -106,6 +108,15 @@ class DetailController extends GetxController {
         HistoryModel(orderDate, totalAmount, qty, List.from(foodcart));
 
     Get.find<HistoryController>().addToHistory(historyModel);
-    // Get.to(() => Myhistory());
+    clearcart();
+    Get.to(() => MyBottomNavigation());
+  }
+
+  void clearcart() {
+    foodcart.clear();
+    cartCount.value = 0;
+    totalprice.value = 0;
+    totalAmount.value = '';
+    update();
   }
 }

@@ -11,6 +11,6 @@ class HistoryController extends GetxController{
     orderHistory.add(historyModel);
     update();
   }
-
+  
 
 }

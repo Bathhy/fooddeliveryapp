@@ -6,7 +6,12 @@ import 'package:get/get.dart';
 
 class BottomNaviController extends GetxController {
   var currentIndex = 0.obs;
-  final Screen = [Homescreen(), Myfavourite(), Myprofile(), Myhistory()];
+  final Screen = [
+    Homescreen(),
+    Myfavourite(),
+    Myprofile(),
+    Myhistory(),
+  ];
 
   void pageclick(int index) {
     currentIndex.value = index;

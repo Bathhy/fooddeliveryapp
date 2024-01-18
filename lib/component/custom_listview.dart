@@ -30,7 +30,6 @@ class Food {
     };
   }
 
-  // Updated fromMap factory method
   factory Food.fromMap(Map<String, dynamic> map) {
     return Food(
       img: map['img'] ?? "", // Add 'img' field here

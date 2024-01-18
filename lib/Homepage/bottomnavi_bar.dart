@@ -13,14 +13,14 @@ class MyBottomNavigation extends StatelessWidget {
           () => _bottomcontroller.Screen[_bottomcontroller.currentIndex.value]),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-          backgroundColor: Colors.black,
+          backgroundColor: colorGrey,
           currentIndex: _bottomcontroller.currentIndex.value,
           onTap: (index) {
             _bottomcontroller.pageclick(index);
           },
           selectedItemColor: colorOrange,
           unselectedItemColor: Colors.grey,
-          // type: BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: Icon(
