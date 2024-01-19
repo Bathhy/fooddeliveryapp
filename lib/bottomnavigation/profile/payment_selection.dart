@@ -13,6 +13,7 @@ class BankPayment extends StatelessWidget {
     return GetBuilder<ProfileController>(
       builder: (controller) {
         return Container(
+          margin: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20), color: Colors.white),
           child: Column(

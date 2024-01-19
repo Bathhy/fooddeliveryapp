@@ -16,41 +16,39 @@ class _MyfavouriteState extends State<Myfavourite> {
   final DetailController _favcontr = Get.find();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: colorGrey,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'Favourite',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          backgroundColor: colorGrey,
-          leading: IconButton(
-            onPressed: () {
-              // Get.back();
-            },
-            icon: const Icon(Icons.arrow_back_ios),
+    return Scaffold(
+      backgroundColor: colorGrey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Favourite',
+          style: TextStyle(
             color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 90),
-                child: Image.asset(imageswipe)),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: _buildFavcontent(),
-              ),
-            ),
-          ],
+        backgroundColor: colorGrey,
+        leading: IconButton(
+          onPressed: () {
+            // Get.back();
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.black,
         ),
+      ),
+      body: Column(
+        children: [
+          Container(
+              padding: EdgeInsets.symmetric(horizontal: 90),
+              child: Image.asset(imageswipe)),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: _buildFavcontent(),
+            ),
+          ),
+        ],
       ),
     );
   }

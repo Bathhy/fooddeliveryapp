@@ -25,7 +25,7 @@ class _MyprofileState extends State<Myprofile> {
         backgroundColor: colorGrey,
         leading: IconButton(
           onPressed: () {
-            // Get.back();
+            Get.back();
           },
           icon: Icon(
             Icons.arrow_back_ios,

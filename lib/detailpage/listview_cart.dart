@@ -4,12 +4,19 @@ import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
-class CartListview extends StatelessWidget {
+class CartListview extends StatefulWidget {
   CartListview({
     super.key,
   });
 
+  @override
+  State<CartListview> createState() => _CartListviewState();
+}
+
+class _CartListviewState extends State<CartListview> {
   final DetailController _controller = Get.find();
+
+  int count = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +101,7 @@ class CartListview extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              food.price,
+                              '\$ ${food.price}',
                               style: TextStyle(
                                   color: colorOrange,
                                   fontSize: 17,
@@ -103,47 +110,50 @@ class CartListview extends StatelessWidget {
                             SizedBox(
                               width: 10,
                             ),
+                            //Box increment and decrement
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 color: colorOrange,
                                 borderRadius: BorderRadius.circular(30),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 5),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "-",
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  //decrement product
+                                  IconButton(
+                                      onPressed: () {
+                                        // _controller.cartCount;
+                                        dcreament();
+                                      },
+                                      icon: Icon(
+                                        Icons.remove,
+                                        color: Colors.white,
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: Text(
+                                      //output number count
+                                      // " ${_controller.cartCount}",
+                                      "${count}",
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text(
-                                        "1",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                        ),
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
                                       ),
                                     ),
-                                    Text(
-                                      "+",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  //add product increment
+                                  IconButton(
+                                      onPressed: () {
+                                        increament();
+                                      },
+                                      icon: Icon(
+                                        Icons.add,
+                                        color: Colors.white,
+                                      ))
+                                ],
                               ),
                             )
                           ],
@@ -158,6 +168,20 @@ class CartListview extends StatelessWidget {
           );
         },
       );
+    });
+  }
+
+  void increament() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void dcreament() {
+    setState(() {
+      if (count > 1) {
+        count--;
+      }
     });
   }
 }

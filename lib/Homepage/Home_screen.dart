@@ -32,7 +32,8 @@ class _HomescreenState extends State<Homescreen>
     _tabController.addListener(() {
       _homeController.filterByCategory(categorys[_tabController.index]);
     });
-    _homeController.filterByCategory(categorys.first);
+
+    Future.microtask(() => _homeController.filterByCategory(categorys.first));
     super.initState();
   }
 
@@ -61,7 +62,7 @@ class _HomescreenState extends State<Homescreen>
                   ),
                 ),
                 Positioned(
-                    top: 10,
+                    top: 5,
                     left: 0,
                     bottom: 20,
                     child: CircleAvatar(

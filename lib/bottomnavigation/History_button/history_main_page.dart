@@ -42,9 +42,10 @@ class _MyhistoryState extends State<Myhistory> {
       body: Column(
         children: [
           Expanded(
-              child: Container(
-            child: _BuildHistoryempty(),
-          ))
+            child: Container(
+              child: _BuildHistoryempty(),
+            ),
+          )
         ],
       ),
     );
@@ -52,9 +53,7 @@ class _MyhistoryState extends State<Myhistory> {
 
   Widget _BuildHistoryempty() {
     if (_controller.orderHistory.isEmpty) {
-      return Center(
-        child: _BuildnoHistory(),
-      );
+      return _BuildnoHistory();
     } else {
       return Container(
         child: _listviewCard(),
@@ -63,24 +62,29 @@ class _MyhistoryState extends State<Myhistory> {
   }
 
   Widget _BuildnoHistory() {
-    return Column(
-      children: [
-        Icon(
-          Icons.shopping_cart_outlined,
-          size: 150,
-          color: Colors.grey[400],
-        ),
-        Text(
-          'No History yet',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-        ),
-        Text(
-          'Please Order Something \n to show',
-          style: TextStyle(
-              color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.shopping_cart_outlined,
+            size: 150,
+            color: Colors.grey[400],
+          ),
+          Text(
+            'No History yet',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          Text(
+            'Please Order Something \n to show',
+            style: TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 15),
+          ),
+        ],
+      ),
     );
   }
 
@@ -125,15 +129,13 @@ class _MyhistoryState extends State<Myhistory> {
                           'DateTime : ${historyModel.orderDate} ',
                           style: TextStyle(
                             color: Colors.black,
+                            fontSize: 12,
                           ),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text('Total Amount: \$ ${historyModel.totalAmount}'),
-                        SizedBox(
-                          height: 5,
-                        ),
                         Text("Quantity: ${historyModel.qty}")
                       ],
                     ),

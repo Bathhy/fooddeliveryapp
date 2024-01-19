@@ -41,7 +41,7 @@ class Profilecard_two extends StatelessWidget {
                 ),
               ),
               Text(
-                'Sangkat Sras Chork khan duan',
+                'Sangkat Sras Chork \nkhan duan',
                 style: TextStyle(
                     fontSize: 15,
                     color: Colors.grey,

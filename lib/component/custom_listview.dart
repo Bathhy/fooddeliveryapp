@@ -29,15 +29,20 @@ class Food {
     };
   }
 
-  factory Food.fromMap(Map<String, dynamic> map) {
+  factory Food.fromJson(Map<String, dynamic> json) {
     return Food(
-      img: map['img'] ?? "", // Add 'img' field here
-      name: map['name'] ?? "",
-      price: map['price'] ?? "",
-      category: map['category'],
-      imagecate: List<String>.from(map['imagecate'] ?? []),
+      img: json['img'] ?? "", // Add 'img' field here
+      name: json['name'] ?? "",
+      price: json['price'] ?? "",
+      category: json['category'],
+      imagecate: List<String>.from(json['imagecate'] ?? []),
     );
   }
+
+  static Food fromJsonMap(Map<String, dynamic> map) {
+    return Food.fromJson(map);
+  }
+
   static List<Food> foodlist = [
     Food(
       img: imageDumpling,

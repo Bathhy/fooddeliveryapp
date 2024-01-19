@@ -4,6 +4,7 @@ import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:get/get.dart';
 
 class MyBottomNavigation extends StatelessWidget {
+  
   final BottomNaviController _bottomcontroller = Get.find();
 
   @override

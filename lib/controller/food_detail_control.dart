@@ -110,8 +110,9 @@ class DetailController extends GetxController {
         HistoryModel(orderDate, totalAmount, qty, List.from(foodcart));
 
     Get.find<HistoryController>().addToHistory(historyModel);
+
+    Get.offAll(() => MyBottomNavigation());
     clearcart();
-    Get.to(() => MyBottomNavigation());
   }
 
   void clearcart() {

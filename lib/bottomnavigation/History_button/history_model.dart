@@ -11,4 +11,8 @@ class HistoryModel {
 
   String Dateformat() =>
       DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.parse(orderDate));
+
+  Object? toMap() {}
+
+  static fromJson(jsonDecode) {}
 }
