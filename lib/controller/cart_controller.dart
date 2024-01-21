@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
@@ -31,6 +32,15 @@ class AddtoCartController extends GetxController{
       getAllFood();
       totalQTY();
     }
+     Get.snackbar("", "",
+                          backgroundColor: Colors.green,
+                          snackPosition: SnackPosition.BOTTOM,
+                          duration: Duration(seconds: 1),
+                          titleText: Text(
+                            "Delete",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          messageText: Text("Success...."));
   }
 
   void totalQTY() async {

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
 class CartListview extends StatefulWidget {
-  CartListview({
-    super.key
-  });
+  CartListview({super.key});
   @override
   State<CartListview> createState() => _CartListviewState();
 }
@@ -36,19 +33,6 @@ class _CartListviewState extends State<CartListview> {
                 children: [
                   SizedBox(
                     width: 15,
-                  ),
-                  SlidableAction(
-                    onPressed: (context) {
-                      _controller.addTocart(food);
-                    },
-                    backgroundColor: Colors.red,
-                    icon: Icons.favorite_outline,
-                    spacing: 12,
-                    autoClose: true,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  SizedBox(
-                    width: 5,
                   ),
                   SlidableAction(
                     onPressed: (context) {

@@ -28,6 +28,19 @@ class favListview extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
+                 SlidableAction(
+                    onPressed: (context) {
+                      _favcontrol.saveFavData(foodfav);
+                    },
+                    backgroundColor: Colors.red,
+                    icon: Icons.favorite_outline,
+                    spacing: 12,
+                    autoClose: true,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                 SlidableAction(
                   onPressed: (context) {
                     _favcontrol.deleteByIndex(foodfav);

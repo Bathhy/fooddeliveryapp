@@ -26,6 +26,7 @@ class AddFavouriteController extends GetxController {
     if (isFavRemove) {
       getAllFav();
     }
+    
   }
 
   // color fav

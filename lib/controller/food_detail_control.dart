@@ -23,23 +23,24 @@ class DetailController extends GetxController {
   var totalprice = 0.obs;
   RxString totalAmount = ''.obs;
 
-   productStorage _productStorage = productStorage.instance;
+  productStorage _productStorage = productStorage.instance;
 
- final productStorage _storage = productStorage.instance;
+  final productStorage _storage = productStorage.instance;
 
   final foodList = <Food>[].obs;
   final totalqty = 0.obs;
 
-
-  void addTocart(Food foodrepo) async{
+  void addTocart(Food foodrepo) async {
     await _productStorage.setData(foodrepo);
+
     Get.find<AddtoCartController>().totalQTY();
-          Get.snackbar("Success", "Add to favourite Successfully",
-          backgroundColor: colorOrange,
-          colorText: colorGrey,
-          duration: Duration(seconds: 2));
+    Get.snackbar("Success", "Add to favourite Successfully",
+        backgroundColor: colorOrange,
+        colorText: colorGrey,
+        duration: Duration(seconds: 2));
+    update();
   }
- 
+
 // cart controller
   // void removeFromCart(Food food) {
   //   foodcart.remove(food);
@@ -89,13 +90,7 @@ class DetailController extends GetxController {
     totalAmount.value = '\$$total';
   }
 
-//   void saveCart(){
-//     productStorage.instance.putArrays(foodcart.toList());
-//   }
 
-//   void loadCart() async{
-//     foodcart = await productStorage.instance.getFoodRepo();
-//   }
 
 //fav controller
 
@@ -104,10 +99,10 @@ class DetailController extends GetxController {
   //     favoriteFoods.add(food);
 
   //     update();
-      // Get.snackbar("Success", "Add to favourite Successfully",
-      //     backgroundColor: colorOrange,
-      //     colorText: colorGrey,
-      //     duration: Duration(seconds: 3));
+  // Get.snackbar("Success", "Add to favourite Successfully",
+  //     backgroundColor: colorOrange,
+  //     colorText: colorGrey,
+  //     duration: Duration(seconds: 3));
   //   }
   //   changeColor();
   // }
@@ -153,8 +148,11 @@ class DetailController extends GetxController {
       totalAmount += double.parse(element.price);
     });
 
-    HistoryModel historyModel =
-        HistoryModel(orderDate: orderDate, totalAmount: totalAmount, qty: qty, items : List.from(foodcart));
+    HistoryModel historyModel = HistoryModel(
+        orderDate: orderDate,
+        totalAmount: totalAmount,
+        qty: qty,
+        items: List.from(foodcart));
 
     Get.find<HistoryController>().addToHistory(historyModel);
 
