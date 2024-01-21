@@ -1,43 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
+// import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/history_controller.dart';
+import 'package:fodddelieveryapp/local_storage/local.dart';
+// import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {
-  List<Food> foodcart = [];
+  RxList<Food> foodcart = <Food>[].obs;
+  // final productStorage _favstorage = productStorage.instance;
 
   List<Food> selectedFoods = [];
   List<Food> favoriteFoods = [];
 
-  RxBool isIconColored = false.obs;
+  // RxBool isIconColored = false.obs;
   var cartCount = 0.obs;
   var totalprice = 0.obs;
   RxString totalAmount = ''.obs;
 
-// cart controler
-  void removeFromCart(Food food) {
-    foodcart.remove(food);
-    cartCount--;
-    calculateAmount(food);
-    calculateAmount(food);
-    update();
-  }
+   productStorage _productStorage = productStorage.instance;
 
-  void addToCart(Food food) {
-    foodcart.add(food);
-    cartCount++;
-    Get.snackbar("Success", "Add to Cart Successfully",
-        backgroundColor: colorOrange,
-        colorText: colorGrey,
-        duration: Duration(seconds: 3));
-    calculateAmount(food);
-    update();
+ final productStorage _storage = productStorage.instance;
+
+  final foodList = <Food>[].obs;
+  final totalqty = 0.obs;
+
+
+  void addTocart(Food foodrepo) async{
+    await _productStorage.setData(foodrepo);
+    Get.find<AddtoCartController>().totalQTY();
+          Get.snackbar("Success", "Add to favourite Successfully",
+          backgroundColor: colorOrange,
+          colorText: colorGrey,
+          duration: Duration(seconds: 2));
   }
+ 
+// cart controller
+  // void removeFromCart(Food food) {
+  //   foodcart.remove(food);
+  //   cartCount--;
+  //   calculateAmount(food);
+  //   calculateAmount(food);
+  //   update();
+  // }
+
+  // void addToCart(Food food) {
+  //   foodcart.add(food);
+  //   cartCount++;
+  //   Get.snackbar("Success", "Add to Cart Successfully",
+  //       backgroundColor: colorOrange,
+  //       colorText: colorGrey,
+  //       duration: Duration(seconds: 3));
+  //   calculateAmount(food);
+  //   update();
+  // }
 
   void CartEmpty(Food food) {
     foodcart.clear();
@@ -68,35 +89,61 @@ class DetailController extends GetxController {
     totalAmount.value = '\$$total';
   }
 
+//   void saveCart(){
+//     productStorage.instance.putArrays(foodcart.toList());
+//   }
+
+//   void loadCart() async{
+//     foodcart = await productStorage.instance.getFoodRepo();
+//   }
+
 //fav controller
 
-  void addToFav(Food food) {
-    if (!favoriteFoods.contains(food)) {
-      favoriteFoods.add(food);
+  // void addToFav(Food food) {
+  //   if (!favoriteFoods.contains(food)) {
+  //     favoriteFoods.add(food);
 
-      update();
-      Get.snackbar("Success", "Add to favourite Successfully",
-          backgroundColor: colorOrange,
-          colorText: colorGrey,
-          duration: Duration(seconds: 3));
-    }
-    changeColor();
-  }
+  //     update();
+      // Get.snackbar("Success", "Add to favourite Successfully",
+      //     backgroundColor: colorOrange,
+      //     colorText: colorGrey,
+      //     duration: Duration(seconds: 3));
+  //   }
+  //   changeColor();
+  // }
 
-  void removeFromFav(Food food) {
-    favoriteFoods.remove(food);
-    update();
-  }
+  // void removeFromFav(Food food) {
+  //   favoriteFoods.remove(food);
+  //   update();
+  // }
 
-  void favEmpty(Food food) {
-    favoriteFoods.clear();
-    update();
-  }
+  // void favEmpty(Food food) {
+  //   favoriteFoods.clear();
+  //   update();
+  // }
+  // void getAllFav() async {
+  //   final foodGetaFav = await _favstorage.getFav();
+  //   foodcart.value = foodGetaFav;
+  // }
 
-  void changeColor() {
-    isIconColored.value = !isIconColored.value;
-  }
+  // void saveFavData(Food foods) async {
+  //   await _favstorage.setFavList(foods);
+  //   getAllFav();
+  // }
 
+  // void deleteByIndex(Food fooddelete) async {
+  //   final isFavRemove = await _favstorage.remove(fooddelete);
+  //   if (isFavRemove) {
+  //     getAllFav();
+  //   }
+  // }
+
+  // // color fav
+  // void changeColor() {
+  //   isIconColored.value = !isIconColored.value;
+  // }
+
+// history controller
   void completeOrder() {
     String orderDate = DateTime.now().toString();
     int qty = foodcart.length;
@@ -107,7 +154,7 @@ class DetailController extends GetxController {
     });
 
     HistoryModel historyModel =
-        HistoryModel(orderDate, totalAmount, qty, List.from(foodcart));
+        HistoryModel(orderDate: orderDate, totalAmount: totalAmount, qty: qty, items : List.from(foodcart));
 
     Get.find<HistoryController>().addToHistory(historyModel);
 

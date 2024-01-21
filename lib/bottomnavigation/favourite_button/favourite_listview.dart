@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:get/get.dart';
 
 class favListview extends StatelessWidget {
@@ -9,14 +9,15 @@ class favListview extends StatelessWidget {
     super.key,
   });
 
-  final DetailController _controller = Get.find();
+  // final DetailController _controller = Get.find();
+  final AddFavouriteController _favcontrol = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: _controller.favoriteFoods.length,
+      itemCount: _favcontrol.favouritefood.length,
       itemBuilder: (context, index) {
-        final foodfav = _controller.favoriteFoods[index];
+        final foodfav = _favcontrol.favouritefood[index];
         return Container(
           margin: EdgeInsets.only(top: 10),
           child: Slidable(
@@ -29,7 +30,7 @@ class favListview extends StatelessWidget {
                 ),
                 SlidableAction(
                   onPressed: (context) {
-                    _controller.removeFromFav(foodfav);
+                    _favcontrol.deleteByIndex(foodfav);
                   },
                   backgroundColor: Colors.red,
                   icon: Icons.delete,

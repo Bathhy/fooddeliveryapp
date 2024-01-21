@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
@@ -13,7 +14,6 @@ import 'package:fodddelieveryapp/component/custom_seemorebutton.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
-
   @override
   State<Homescreen> createState() => _HomescreenState();
 }
@@ -82,7 +82,7 @@ class _HomescreenState extends State<Homescreen>
           ),
         ],
       ),
-      drawer: const Drawerclass(),
+      drawer:  Drawerclass(),
       body: Column(
         children: [
           Topofhome(),
@@ -104,7 +104,9 @@ class _HomescreenState extends State<Homescreen>
 }
 
 class Drawerclass extends StatelessWidget {
-  const Drawerclass({super.key});
+  var foodrepo;
+
+   Drawerclass({super.key});
 
   @override
   Widget build(BuildContext context) {

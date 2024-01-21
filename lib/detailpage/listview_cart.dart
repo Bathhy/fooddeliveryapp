@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
 class CartListview extends StatefulWidget {
   CartListview({
-    super.key,
+    super.key
   });
-
   @override
   State<CartListview> createState() => _CartListviewState();
 }
 
 class _CartListviewState extends State<CartListview> {
   final DetailController _controller = Get.find();
+  final AddtoCartController _addcontrol = Get.find();
 
   int count = 1;
 
@@ -37,7 +39,7 @@ class _CartListviewState extends State<CartListview> {
                   ),
                   SlidableAction(
                     onPressed: (context) {
-                      _controller.addToCart(food);
+                      _controller.addTocart(food);
                     },
                     backgroundColor: Colors.red,
                     icon: Icons.favorite_outline,
@@ -50,7 +52,7 @@ class _CartListviewState extends State<CartListview> {
                   ),
                   SlidableAction(
                     onPressed: (context) {
-                      _controller.removeFromCart(food);
+                      _addcontrol.removeOne(food);
                     },
                     backgroundColor: Colors.red,
                     icon: Icons.delete,

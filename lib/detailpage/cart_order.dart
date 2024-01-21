@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
+import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
@@ -8,15 +9,15 @@ import 'package:get/get.dart';
 
 class CartOrder extends StatefulWidget {
   const CartOrder({
-    Key? key,
+    Key? key, 
   });
-
   @override
   State<CartOrder> createState() => _CartOrderState();
 }
 
 class _CartOrderState extends State<CartOrder> {
   final DetailController _cartcontrol = Get.find();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
