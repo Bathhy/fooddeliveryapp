@@ -4,6 +4,7 @@ import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
+import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
@@ -26,8 +27,11 @@ class _HomescreenState extends State<Homescreen>
   final HomeController _homeController = Get.find();
   final BottomNaviController botcontroller = Get.find();
   final DetailController _cartController = Get.find();
+  final AddtoCartController _addtoCartController = Get.find();
   @override
   void initState() {
+    _addtoCartController.totalqty();
+
     _tabController = TabController(length: categorys.length, vsync: this);
     _tabController.addListener(() {
       _homeController.filterByCategory(categorys[_tabController.index]);
@@ -71,7 +75,7 @@ class _HomescreenState extends State<Homescreen>
                       child: Center(
                         child: Obx(
                           () => Text(
-                            _cartController.cartCount.value.toString(),
+                            _addtoCartController.totalqty.toString(),
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -82,7 +86,7 @@ class _HomescreenState extends State<Homescreen>
           ),
         ],
       ),
-      drawer:  Drawerclass(),
+      drawer: Drawerclass(),
       body: Column(
         children: [
           Topofhome(),
@@ -106,7 +110,7 @@ class _HomescreenState extends State<Homescreen>
 class Drawerclass extends StatelessWidget {
   var foodrepo;
 
-   Drawerclass({super.key});
+  Drawerclass({super.key});
 
   @override
   Widget build(BuildContext context) {

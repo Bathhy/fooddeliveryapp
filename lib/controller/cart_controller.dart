@@ -11,6 +11,8 @@ class AddtoCartController extends GetxController {
   List<Food> favoriteFoods = [];
   final foodList = <Food>[].obs;
   final totalqty = 0.obs;
+    var cartCount = 0.obs;
+
 
   productStorage _productStorage = productStorage.instance;
 
@@ -59,7 +61,7 @@ class AddtoCartController extends GetxController {
   }
 
   void decreateQty(int index) {
-    if (foodList[index].qty <= 0) {
+    if (foodList[index].qty < 0) {
       return;
     }
 

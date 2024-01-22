@@ -146,5 +146,4 @@ class productStorage {
     allFoods.removeWhere((f) => f.name == food.name);
     return saveDataFav(allFoods);
   }
-
 }

@@ -34,7 +34,7 @@ class _CartListviewState extends State<CartListview> {
             margin: EdgeInsets.only(top: 5),
             child: Slidable(
               endActionPane: ActionPane(
-                // extentRatio: 0.5,
+                extentRatio: 0.3,
                 motion: BehindMotion(),
                 children: [
                   SizedBox(

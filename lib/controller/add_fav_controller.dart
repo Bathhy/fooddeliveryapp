@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class AddFavouriteController extends GetxController {
   final productStorage _favstorage = productStorage.instance;
-  final favouritefood = [].obs;
+  final favouritefood = <Food>[].obs;
   RxBool isIconColored = false.obs;
   void getAllFav() async {
     final foodGetaFav = await _favstorage.getFav();
@@ -31,5 +31,18 @@ class AddFavouriteController extends GetxController {
   // color fav
   void changeColor() {
     isIconColored.value = !isIconColored.value;
+  }
+  void increateQty(int index) {
+    favouritefood[index].qty += 1;
+    update();
+  }
+
+  void decreateQty(int index) {
+    if (favouritefood[index].qty < 0) {
+      return;
+    }
+
+    favouritefood[index].qty -= 1;
+    update();
   }
 }
