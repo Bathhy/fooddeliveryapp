@@ -6,6 +6,7 @@ class Food {
   String price = "";
   String? category;
   List<String> imagecate = [];
+  int qty = 1;
 
   Food({
     required String img,
@@ -13,15 +14,19 @@ class Food {
     required String price,
     String? category,
     List<String>? imagecate,
+    int qty = 1,
   }) {
     this.img = img;
     this.name = name;
     this.price = price;
     this.category = category;
     this.imagecate = imagecate ?? [];
+    this.qty = qty;
   }
+
   Map<String, dynamic> toMap() {
     return {
+      'img': this.img,
       'name': this.name,
       'price': this.price,
       'category': this.category,

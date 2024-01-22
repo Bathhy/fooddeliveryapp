@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 class CartOrder extends StatefulWidget {
   const CartOrder({
-    Key? key, 
+    Key? key,
   });
   @override
   State<CartOrder> createState() => _CartOrderState();
@@ -17,7 +17,7 @@ class CartOrder extends StatefulWidget {
 
 class _CartOrderState extends State<CartOrder> {
   final DetailController _cartcontrol = Get.find();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _CartOrderState extends State<CartOrder> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: _buildCartContent(),
+              child: CartListview(),
             ),
           ),
           _customButton(),
@@ -40,41 +40,7 @@ class _CartOrderState extends State<CartOrder> {
     );
   }
 
-  Widget _buildCartContent() {
-    if (_cartcontrol.foodcart.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.shopping_cart_outlined,
-              size: 150,
-              color: Colors.grey[400],
-            ),
-            Text(
-              'No orders yet',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
-            ),
-            Text(
-              'Hit the orange button down \n below to Create an order',
-              style: TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
-            ),
-          ],
-        ),
-      );
-    } else {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: CartListview(),
-      );
-    }
-  }
+
 
   AppBar _MyCartAppbar() {
     return AppBar(

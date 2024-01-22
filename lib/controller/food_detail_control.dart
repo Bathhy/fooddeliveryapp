@@ -26,7 +26,7 @@ class DetailController extends GetxController {
   productStorage _productStorage = productStorage.instance;
 
   final productStorage _storage = productStorage.instance;
-
+  bool favStatus = false;
   final foodList = <Food>[].obs;
   final totalqty = 0.obs;
 
@@ -89,8 +89,28 @@ class DetailController extends GetxController {
     totalprice.value = total;
     totalAmount.value = '\$$total';
   }
+  //   void getFavs(Food foodRepo) async {
+  //   final favs = await _productStorage.getFav();
 
+  //   final favFood = favs
+  //       .firstWhereOrNull((element) => element.name == foodRepo.name);
+  //   favStatus = favFood != null;
+  //   update();
+  // }
 
+  // void saveFavData(Food foods) async {
+  //   final favs = await _productStorage.getFav();
+  //   final isExist =
+  //       favs.indexWhere((element) => element.name == foods.name) != -1;
+
+  //    if (isExist) {
+  //     await _productStorage.removeFav(foods);
+  //   } else {
+  //     await _productStorage.setFavList(foods);
+  //   }
+  //   getFavs(foods);
+  //   Get.find<AddToFavoriteController>().getAllFav();
+  // }
 
 //fav controller
 

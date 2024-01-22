@@ -13,7 +13,7 @@ class AddFavouriteController extends GetxController {
   }
 
   void saveFavData(Food foods) async {
-    await _favstorage.setFavList(foods);
+    await _favstorage.setFavlist(foods);
     getAllFav();
     Get.snackbar("Success", "Add to favourite Successfully",
         backgroundColor: colorOrange,
@@ -26,7 +26,6 @@ class AddFavouriteController extends GetxController {
     if (isFavRemove) {
       getAllFav();
     }
-    
   }
 
   // color fav

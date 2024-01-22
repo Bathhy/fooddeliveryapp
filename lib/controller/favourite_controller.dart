@@ -13,4 +13,6 @@ class FavouriteController extends GetxController{
       Get.snackbar('Already in Cart', 'Item is already in your cart');
     }
   }
+
+
 }

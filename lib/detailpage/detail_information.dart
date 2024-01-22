@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
+import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
@@ -18,6 +19,12 @@ class DetailfoodInfo extends StatefulWidget {
 class _DetailfoodInfoState extends State<DetailfoodInfo> {
   DetailController _controler = Get.find();
   AddFavouriteController _favcontroller = Get.find();
+  final AddtoCartController _cartController = Get.find();
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +46,7 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
             child: CustomButton(
               title: 'Add to cart',
               callback: () {
-                _controler.addTocart(widget.food);
+                _cartController.addTocart(widget.food);
               },
             ),
           ),

@@ -12,18 +12,24 @@ class CartListview extends StatefulWidget {
 }
 
 class _CartListviewState extends State<CartListview> {
-  final DetailController _controller = Get.find();
   final AddtoCartController _addcontrol = Get.find();
+
+  @override
+  void initState() {
+    _addcontrol.getAllFood();
+    super.initState();
+  }
 
   int count = 1;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DetailController>(builder: (controller) {
+    return GetBuilder<AddtoCartController>(builder: (controller) {
       return ListView.builder(
-        itemCount: _controller.foodcart.length,
+        itemCount: _addcontrol.foodList.length,
         itemBuilder: (context, index) {
-          final food = _controller.foodcart[index];
+          final food = _addcontrol.foodList[index];
+          print(food.img);
           return Container(
             margin: EdgeInsets.only(top: 5),
             child: Slidable(
@@ -110,7 +116,7 @@ class _CartListviewState extends State<CartListview> {
                                   IconButton(
                                       onPressed: () {
                                         // _controller.cartCount;
-                                        dcreament();
+                                        controller.decreateQty(index);
                                       },
                                       icon: Icon(
                                         Icons.remove,
@@ -122,7 +128,7 @@ class _CartListviewState extends State<CartListview> {
                                     child: Text(
                                       //output number count
                                       // " ${_controller.cartCount}",
-                                      "${count}",
+                                      "${food.qty}",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -133,7 +139,7 @@ class _CartListviewState extends State<CartListview> {
                                   //add product increment
                                   IconButton(
                                       onPressed: () {
-                                        increament();
+                                        controller.increateQty(index);
                                       },
                                       icon: Icon(
                                         Icons.add,

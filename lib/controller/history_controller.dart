@@ -13,4 +13,4 @@ class HistoryController extends GetxController{
   }
   
 
-}
+} 
