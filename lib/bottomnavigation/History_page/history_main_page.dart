@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_detail.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_detail.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
@@ -52,7 +52,7 @@ class _MyhistoryState extends State<Myhistory> {
   }
 
   Widget _BuildHistoryempty() {
-    if (_controller.orderHistory.isEmpty) {
+    if (_controller.foodhist.isEmpty) {
       return _BuildnoHistory();
     } else {
       return Container(
@@ -90,9 +90,9 @@ class _MyhistoryState extends State<Myhistory> {
 
   Widget _listviewCard() {
     return ListView.builder(
-      itemCount: _controller.orderHistory.length,
+      itemCount: _controller.foodhist.length,
       itemBuilder: (context, index) {
-        HistoryModel historyModel = _controller.orderHistory[index];
+        HistoryModel historyModel = _controller.foodhist[index];
         return InkWell(
           onTap: () {
             Get.to(() => HistoryOrdDetail(

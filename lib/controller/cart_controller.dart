@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
 
@@ -10,12 +13,14 @@ class AddtoCartController extends GetxController {
   // final productStorage _favstorage = productStorage.instance;
 
   final foodList = <Food>[].obs;
-  final totalqty = 0.obs;
+  var totalqty = 0.obs;
   var cartCount = 0.obs;
+  var totalprice = 0.obs;
 
   productStorage _productStorage = productStorage.instance;
 
   final productStorage _storage = productStorage.instance;
+
   void addTocart(Food foodrepo) async {
     final isSave = await _productStorage.setData(foodrepo);
 
@@ -25,7 +30,10 @@ class AddtoCartController extends GetxController {
           backgroundColor: colorOrange,
           colorText: colorGrey,
           duration: Duration(seconds: 2));
+
+      totalqty++;
     }
+    //cartCount++;
   }
 
   void getAllFood() async {
@@ -56,6 +64,7 @@ class AddtoCartController extends GetxController {
 
   void increateQty(int index) {
     foodList[index].qty += 1;
+
     update();
   }
 
@@ -67,7 +76,7 @@ class AddtoCartController extends GetxController {
     foodList[index].qty -= 1;
     update();
   }
-  
+
   void checkcartEmpty() {
     if (foodList.isEmpty) {
       Get.snackbar("No Items", "Please Add food to Cart",
@@ -78,5 +87,45 @@ class AddtoCartController extends GetxController {
     } else {
       Get.to(() => Mypaymentpage());
     }
+  }
+
+  void calculateAmount(Food food) {
+    int total = 0;
+
+    for (var food in foodList) {
+      int price = int.tryParse(food.price.replaceAll('\$', '')) ?? 0;
+      total += price;
+    }
+
+    totalprice.value = total;
+  }
+
+  void completeOrder() {
+    String orderDate = DateTime.now().toString();
+    int qty = foodcart.length;
+    double totalAmount = 0.0;
+
+    foodcart.forEach((element) {
+      totalAmount += double.parse(element.price);
+    });
+
+    HistoryModel historyModel = HistoryModel(
+        orderDate: orderDate,
+        totalAmount: totalAmount,
+        qty: qty,
+        items: List.from(foodcart));
+
+    Get.find<HistoryController>().addToHistory(historyModel);
+
+    Get.offAll(() => MyBottomNavigation());
+    clearcart();
+  }
+
+  void clearcart() {
+    foodList.clear();
+    totalqty.value = 0;
+    // totalprice.value = 0;
+    // totalAmount.value = '';
+    update();
   }
 }

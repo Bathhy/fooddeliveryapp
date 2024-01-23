@@ -18,6 +18,7 @@ class _CartListviewState extends State<CartListview> {
   @override
   void initState() {
     _addcontrol.getAllFood();
+    _addcontrol.totalQTY();
     super.initState();
   }
 

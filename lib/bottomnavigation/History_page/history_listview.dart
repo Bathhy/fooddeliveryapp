@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:get/get.dart';

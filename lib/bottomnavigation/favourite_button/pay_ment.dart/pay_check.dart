@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/payment_selection.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
+import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class Mypaymentpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DetailController _numCountControl = Get.find();
+    final AddtoCartController _cartcontrol = Get.find();
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _AppBarPayment(),
@@ -53,7 +55,7 @@ class Mypaymentpage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 40),
                 child: Obx(
                   () => Text(
-                    _numCountControl.cartCount.value.toString(),
+                    _cartcontrol.totalqty.toString(),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -80,7 +82,7 @@ class Mypaymentpage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 40),
                 child: Obx(
                   () => Text(
-                    ' \$${_numCountControl.totalprice}',
+                    ' \$${_cartcontrol.totalprice}',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,

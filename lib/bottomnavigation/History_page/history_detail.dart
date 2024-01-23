@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_listview.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_listview.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';

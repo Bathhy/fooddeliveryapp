@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
@@ -33,7 +34,7 @@ class _HomescreenState extends State<Homescreen>
 
   @override
   void initState() {
-    _addtoCartController.totalqty();
+    _addtoCartController.totalQTY();
 
     _tabController = TabController(length: categorys.length, vsync: this);
     _tabController.addListener(() {

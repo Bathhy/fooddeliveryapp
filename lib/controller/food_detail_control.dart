@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 // import 'package:fodddelieveryapp/bottomnavigation/History_button/history_main_page.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_button/history_model.dart';
+import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
-import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
 // import 'package:fodddelieveryapp/local_storage/local.dart';
@@ -61,10 +60,10 @@ class DetailController extends GetxController {
   //   update();
   // }
 
-  void CartEmpty(Food food) {
-    foodcart.clear();
-    update();
-  }
+  // void CartEmpty(Food food) {
+  //   foodcart.clear();
+  //   update();
+  // }
 
   // void checkcartEmpty() {
   //   if (foodcart.isEmpty) {
