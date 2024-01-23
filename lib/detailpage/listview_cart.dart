@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
-import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
 class CartListview extends StatefulWidget {
@@ -13,6 +13,7 @@ class CartListview extends StatefulWidget {
 
 class _CartListviewState extends State<CartListview> {
   final AddtoCartController _addcontrol = Get.find();
+  final AddFavouriteController _favcontrol = Get.find();
 
   @override
   void initState() {
@@ -34,11 +35,24 @@ class _CartListviewState extends State<CartListview> {
             margin: EdgeInsets.only(top: 5),
             child: Slidable(
               endActionPane: ActionPane(
-                extentRatio: 0.3,
+                extentRatio: 0.5,
                 motion: BehindMotion(),
                 children: [
                   SizedBox(
-                    width: 15,
+                    width: 10,
+                  ),
+                  SlidableAction(
+                    onPressed: (context) {
+                      _favcontrol.saveFavData(food);
+                    },
+                    backgroundColor: Colors.red,
+                    icon: Icons.favorite,
+                    spacing: 12,
+                    autoClose: true,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  SizedBox(
+                    width: 10,
                   ),
                   SlidableAction(
                     onPressed: (context) {

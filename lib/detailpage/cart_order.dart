@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
+
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
-import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
@@ -17,8 +17,9 @@ class CartOrder extends StatefulWidget {
 }
 
 class _CartOrderState extends State<CartOrder> {
-  final DetailController _cartcontrol = Get.find();
+  // final DetailController _cartcontrol = Get.find();
   final AddtoCartController _addcontrol = Get.find();
+ 
   @override
   void initState() {
     super.initState();
@@ -109,7 +110,7 @@ class _CartOrderState extends State<CartOrder> {
         child: CustomButton(
             title: 'Start Ordering',
             callback: () {
-              _cartcontrol.checkcartEmpty();
+              _addcontrol.checkcartEmpty();
             }));
   }
 }

@@ -10,11 +10,9 @@ class productStorage {
   productStorage._internal();
   Future<SharedPreferences> _getSharePreference() async =>
       await SharedPreferences.getInstance();
-  // Future<void>setData (Food food)async{
-  //   final allFood = await getFoodRepos();
-  //   final sameorder = allfood.indexwhere((e))
-  // }
-
+ 
+  //Cart Local
+  //
   // set indi
   Future<bool> setData(Food food) async {
     final allFood = await getFoodRepo();
@@ -117,7 +115,7 @@ class productStorage {
   }
 
 // Delete favorite by index
-  Future<bool> remove(Food foodfavdelete) async {
+  Future<bool> removefav(Food foodfavdelete) async {
     final allFoods = await getFav();
     allFoods.removeWhere((f) => f.name == foodfavdelete.name);
     return saveDataFav(allFoods);
@@ -130,7 +128,7 @@ class productStorage {
   }
 
   // Future<bool> addTofav(Food food) {
-
+  //     final 
   // }
 
   // Future<List<Food>> getFavs() {

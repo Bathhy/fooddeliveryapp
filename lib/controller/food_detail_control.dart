@@ -30,16 +30,16 @@ class DetailController extends GetxController {
   final foodList = <Food>[].obs;
   final totalqty = 0.obs;
 
-  void addTocart(Food foodrepo) async {
-    await _productStorage.setData(foodrepo);
+  // void addTocart(Food foodrepo) async {
+  //   await _productStorage.setData(foodrepo);
 
-    Get.find<AddtoCartController>().totalQTY();
-    Get.snackbar("Success", "Add to favourite Successfully",
-        backgroundColor: colorOrange,
-        colorText: colorGrey,
-        duration: Duration(seconds: 2));
-    update();
-  }
+  //   Get.find<AddtoCartController>().totalQTY();
+  //   Get.snackbar("Success", "Add to favourite Successfully",
+  //       backgroundColor: colorOrange,
+  //       colorText: colorGrey,
+  //       duration: Duration(seconds: 2));
+  //   update();
+  // }
 
 // cart controller
   // void removeFromCart(Food food) {
@@ -66,17 +66,17 @@ class DetailController extends GetxController {
     update();
   }
 
-  void checkcartEmpty() {
-    if (foodcart.isEmpty) {
-      Get.snackbar("No Items", "Please Add food to Cart",
-          backgroundColor: Colors.red[900],
-          colorText: colorGrey,
-          snackPosition: SnackPosition.TOP,
-          duration: Duration(seconds: 3));
-    } else {
-      Get.to(() => Mypaymentpage());
-    }
-  }
+  // void checkcartEmpty() {
+  //   if (foodcart.isEmpty) {
+  //     Get.snackbar("No Items", "Please Add food to Cart",
+  //         backgroundColor: Colors.red[900],
+  //         colorText: colorGrey,
+  //         snackPosition: SnackPosition.TOP,
+  //         duration: Duration(seconds: 3));
+  //   } else {
+  //     Get.to(() => Mypaymentpage());
+  //   }
+  // }
 
   void calculateAmount(Food food) {
     int total = 0;

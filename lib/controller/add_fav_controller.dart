@@ -19,12 +19,19 @@ class AddFavouriteController extends GetxController {
         backgroundColor: colorOrange,
         colorText: colorGrey,
         duration: Duration(seconds: 2));
+    update();
+  }
+
+  void deledtedfav() {
+    _favstorage.removeByKey("Favlist");
+    favouritefood.clear();
   }
 
   void deleteByIndex(Food fooddelete) async {
-    final isFavRemove = await _favstorage.remove(fooddelete);
+    final isFavRemove = await _favstorage.removefav(fooddelete);
     if (isFavRemove) {
-      getAllFav();
+      favouritefood.remove(fooddelete);
+      update();
     }
   }
 
@@ -32,6 +39,7 @@ class AddFavouriteController extends GetxController {
   void changeColor() {
     isIconColored.value = !isIconColored.value;
   }
+
   void increateQty(int index) {
     favouritefood[index].qty += 1;
     update();

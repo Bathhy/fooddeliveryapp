@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
@@ -7,12 +9,9 @@ class AddtoCartController extends GetxController {
   RxList<Food> foodcart = <Food>[].obs;
   // final productStorage _favstorage = productStorage.instance;
 
-  List<Food> selectedFoods = [];
-  List<Food> favoriteFoods = [];
   final foodList = <Food>[].obs;
   final totalqty = 0.obs;
-    var cartCount = 0.obs;
-
+  var cartCount = 0.obs;
 
   productStorage _productStorage = productStorage.instance;
 
@@ -22,7 +21,7 @@ class AddtoCartController extends GetxController {
 
     if (isSave) {
       Get.find<AddtoCartController>().totalQTY();
-      Get.snackbar("Success", "Add to favourite Successfully",
+      Get.snackbar("Success", "Add to Cart Successfully",
           backgroundColor: colorOrange,
           colorText: colorGrey,
           duration: Duration(seconds: 2));
@@ -67,5 +66,17 @@ class AddtoCartController extends GetxController {
 
     foodList[index].qty -= 1;
     update();
+  }
+  
+  void checkcartEmpty() {
+    if (foodList.isEmpty) {
+      Get.snackbar("No Items", "Please Add food to Cart",
+          backgroundColor: Colors.red[900],
+          colorText: colorGrey,
+          snackPosition: SnackPosition.TOP,
+          duration: Duration(seconds: 3));
+    } else {
+      Get.to(() => Mypaymentpage());
+    }
   }
 }

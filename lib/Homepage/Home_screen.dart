@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
+import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
@@ -28,6 +28,9 @@ class _HomescreenState extends State<Homescreen>
   final BottomNaviController botcontroller = Get.find();
   final DetailController _cartController = Get.find();
   final AddtoCartController _addtoCartController = Get.find();
+
+  final AddFavouriteController _favcontrol = Get.find();
+
   @override
   void initState() {
     _addtoCartController.totalqty();
@@ -38,6 +41,7 @@ class _HomescreenState extends State<Homescreen>
     });
 
     Future.microtask(() => _homeController.filterByCategory(categorys.first));
+    _favcontrol.getAllFav();
     super.initState();
   }
 

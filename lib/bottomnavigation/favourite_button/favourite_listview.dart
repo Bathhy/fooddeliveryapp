@@ -4,13 +4,22 @@ import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:get/get.dart';
 
-class favListview extends StatelessWidget {
+class favListview extends StatefulWidget {
   favListview({
     super.key,
   });
 
+  @override
+  State<favListview> createState() => _favListviewState();
+}
+
+class _favListviewState extends State<favListview> {
   // final DetailController _controller = Get.find();
   final AddFavouriteController _favcontrol = Get.find();
+  void initState() {
+    _favcontrol.getAllFav();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +33,10 @@ class favListview extends StatelessWidget {
             child: Slidable(
               endActionPane: ActionPane(
                 motion: BehindMotion(),
-                extentRatio: 0.4,
+                extentRatio: 0.3,
                 children: [
                   SizedBox(
                     width: 10,
-                  ),
-                  SlidableAction(
-                    onPressed: (context) {
-                      _favcontrol.saveFavData(foodfav);
-                    },
-                    backgroundColor: Colors.red,
-                    icon: Icons.favorite_outline,
-                    spacing: 12,
-                    autoClose: true,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  SizedBox(
-                    width: 5,
                   ),
                   SlidableAction(
                     onPressed: (context) {
