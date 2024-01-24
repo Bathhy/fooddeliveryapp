@@ -4,6 +4,7 @@ import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:fodddelieveryapp/controller/history_controller.dart';
 
 import 'package:get/get.dart';
 
@@ -14,6 +15,7 @@ class Mypaymentpage extends StatelessWidget {
   Widget build(BuildContext context) {
     final DetailController _numCountControl = Get.find();
     final AddtoCartController _cartcontrol = Get.find();
+    final HistoryController _hiscontroller = Get.find();
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _AppBarPayment(),
@@ -100,7 +102,9 @@ class Mypaymentpage extends StatelessWidget {
                 child: CustomButton(
                     title: "Complete Order",
                     callback: () {
-                      _numCountControl.completeOrder();
+                      _hiscontroller.completeOrder(_cartcontrol.foodList);
+                      _cartcontrol.totalqty;
+                      _cartcontrol.remvoeAll();
                     })),
           )
         ],

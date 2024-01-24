@@ -8,7 +8,7 @@ class HistoryModel {
   final int qty;
   final List<Food> items;
 
-    HistoryModel(
+  HistoryModel(
       {required this.orderDate,
       required this.qty,
       required this.totalAmount,
