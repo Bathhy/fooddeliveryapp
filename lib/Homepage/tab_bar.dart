@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/component/constant_color.dart';
 
 class Mytabbar extends StatelessWidget {
   const Mytabbar(
@@ -11,6 +12,10 @@ class Mytabbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
         controller: tabController,
+        unselectedLabelColor: Colors.black,
+        labelColor: colorOrange,
+        indicatorColor: colorOrange,
+        labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         tabs: categorys.map((category) {
           return Tab(text: category);
         }).toList());

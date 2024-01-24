@@ -130,15 +130,21 @@ class _MyhistoryState extends State<Myhistory> {
                         Text(
                           'DateTime : ${historyModel.Dateformat()} ',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                          ),
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 5,
                         ),
-                        Text('Total Amount: \$ ${historyModel.totalAmount}'),
-                        Text("Quantity: ${historyModel.qty}")
+                        Text(
+                          'Total Amount: \$ ${historyModel.totalAmount}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Quantity: ${historyModel.qty}",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                   ],

@@ -72,8 +72,7 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
               _favcontroller.saveFavData(widget.food);
             },
             icon: Icon(Icons.favorite),
-            color:
-                _favcontroller.isIconColored.value ? colorOrange : Colors.grey,
+            color: _favcontroller.isIconColored.value ? colorGrey : colorOrange,
           ),
         )
       ],

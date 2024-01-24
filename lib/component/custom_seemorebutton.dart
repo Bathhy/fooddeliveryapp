@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fodddelieveryapp/Homepage/seemore_page.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
+import 'package:fodddelieveryapp/search/search_food.dart';
+import 'package:get/get.dart';
 
 class Seemorebutton extends StatelessWidget {
   const Seemorebutton({super.key});
@@ -7,7 +10,9 @@ class Seemorebutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(() => Seemorepage());
+        },
         child: const Text(
           'See more',
           style: TextStyle(

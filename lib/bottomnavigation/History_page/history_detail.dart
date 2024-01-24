@@ -27,7 +27,7 @@ class HistoryOrdDetail extends StatelessWidget {
     final DetailController _controller = Get.find();
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15),
-      decoration: BoxDecoration(color: colorOrange),
+      decoration: BoxDecoration(color: Colors.white),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -36,7 +36,7 @@ class HistoryOrdDetail extends StatelessWidget {
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
-              color: colorGrey,
+              color: colorOrange,
             ),
           ),
         ],
