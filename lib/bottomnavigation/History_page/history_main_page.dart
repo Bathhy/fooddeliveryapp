@@ -17,6 +17,12 @@ class _MyhistoryState extends State<Myhistory> {
   HistoryController _controller = Get.find();
 
   @override
+  void initState() {
+    _controller.getAllHistory();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorGrey,
@@ -39,14 +45,10 @@ class _MyhistoryState extends State<Myhistory> {
           color: Colors.black,
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              child: _BuildHistoryempty(),
-            ),
-          )
-        ],
+      body: Obx(
+        () => Expanded(
+          child: _BuildHistoryempty(),
+        ),
       ),
     );
   }
@@ -126,7 +128,7 @@ class _MyhistoryState extends State<Myhistory> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'DateTime : ${historyModel.orderDate} ',
+                          'DateTime : ${historyModel.Dateformat()} ',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,

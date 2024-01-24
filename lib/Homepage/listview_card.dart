@@ -25,7 +25,7 @@ class Mybuildcard extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, constraint) {
                 return Container(
-                  width: 220,
+                  width: 235,
                   child: Stack(
                     children: [
                       Positioned.fill(
@@ -59,7 +59,7 @@ class Mybuildcard extends StatelessWidget {
                                     food.name,
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 18,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -71,7 +71,7 @@ class Mybuildcard extends StatelessWidget {
                                     '\$ ${food.price}',
                                     style: TextStyle(
                                         color: colorOrange,
-                                        fontSize: 15,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),

@@ -13,7 +13,6 @@ class HistoryOrderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HistoryController _controller = Get.find();
     return ListView.builder(
       itemCount: historyModel.items.length,
       itemBuilder: (context, index) {
@@ -52,7 +51,7 @@ class HistoryOrderView extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 17,
+                        fontSize: 24,
                       ),
                     ),
                     SizedBox(
@@ -64,7 +63,7 @@ class HistoryOrderView extends StatelessWidget {
                           ' \$ ${historyModel.items[index].price}',
                           style: TextStyle(
                               color: colorOrange,
-                              fontSize: 17,
+                              fontSize: 23,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(

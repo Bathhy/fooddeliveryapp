@@ -8,23 +8,25 @@ import 'package:get/get.dart';
 
 class HistoryController extends GetxController {
   final productStorage _historyStorage = productStorage.instance;
-  // List<HistoryModel> orderHistory = [];
+
   final foodhist = <HistoryModel>[].obs;
-  RxList<Food> foodcart = <Food>[].obs;
+
   void addToHistory(HistoryModel historyModel) {
     foodhist.add(historyModel);
     update();
   }
-  void getAllHistory() async{
+
+  void getAllHistory() async {
     final foodGethistory = await _historyStorage.getHistory();
     foodhist(foodGethistory);
   }
-  void completeOrder(List<Food> foods) async{
+
+  void completeOrder(List<Food> foods) async {
     String orderDate = DateTime.now().toString();
-    int qty = foodhist.length;
+    int qty = foods.length;
     double totalAmount = 0.0;
 
-    foodcart.forEach((element) {
+    foods.forEach((element) {
       totalAmount += double.parse(element.price);
     });
 
@@ -32,13 +34,11 @@ class HistoryController extends GetxController {
         orderDate: orderDate,
         totalAmount: totalAmount,
         qty: qty,
-        items: List.from(foodcart));
+        items: List.from(foods));
+
     await _historyStorage.setDataHistory(historyModel);
     Get.find<AddtoCartController>().remvoeAll();
     getAllHistory();
     Get.offAll(() => MyBottomNavigation());
-
   }
-
-
 }

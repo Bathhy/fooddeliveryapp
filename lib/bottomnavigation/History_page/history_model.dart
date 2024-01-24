@@ -18,7 +18,7 @@ class HistoryModel {
     List<Food> detailHistory = [];
     if (json['items'] != null) {
       detailHistory = (json['items'] as List)
-          .map((e) => Food.fromJson(jsonDecode(jsonEncode(e))))
+          .map((e) => Food.fromJson(jsonDecode(e)))
           .toList();
     }
     return HistoryModel(

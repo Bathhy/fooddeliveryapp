@@ -82,7 +82,7 @@ class _favListviewState extends State<favListview> {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 23,
                           ),
                         ),
                         SizedBox(
@@ -94,62 +94,9 @@ class _favListviewState extends State<favListview> {
                               '\$ ${foodfav.price}',
                               style: TextStyle(
                                   color: colorOrange,
-                                  fontSize: 17,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: colorOrange,
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 5),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    //decrement product
-                                    IconButton(
-                                        onPressed: () {
-                                          // _controller.cartCount;
-                                          controller.decreateQty(index);
-                                        },
-                                        icon: Icon(
-                                          Icons.remove,
-                                          color: Colors.white,
-                                        )),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text(
-                                        //output number count
-                                        // " ${_controller.cartCount}",
-                                        "${foodfav.qty}",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ),
-                                    //add product increment
-                                    IconButton(
-                                        onPressed: () {
-                                          controller.increateQty(index);
-                                        },
-                                        icon: Icon(
-                                          Icons.add,
-                                          color: Colors.white,
-                                        ))
-                                  ],
-                                ),
-                              ),
-                            )
                           ],
                         )
                       ],

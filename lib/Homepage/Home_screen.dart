@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
@@ -185,7 +184,7 @@ class Drawerclass extends StatelessWidget {
               color: Colors.white,
             ),
             label: Text(
-              'Sing-Out',
+              'Sign-Out',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 17,
