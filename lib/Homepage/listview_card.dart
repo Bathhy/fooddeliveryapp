@@ -25,7 +25,7 @@ class Mybuildcard extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, constraint) {
                 return Container(
-                  width: 235,
+                  width: 220,
                   child: Stack(
                     children: [
                       Positioned.fill(
@@ -54,7 +54,7 @@ class Mybuildcard extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 50),
+                                  padding: const EdgeInsets.only(top: 30),
                                   child: Text(
                                     food.name,
                                     style: TextStyle(
@@ -62,6 +62,9 @@ class Mybuildcard extends StatelessWidget {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
+                                ),
+                                SizedBox(
+                                  height: 20,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
@@ -71,7 +74,7 @@ class Mybuildcard extends StatelessWidget {
                                     '\$ ${food.price}',
                                     style: TextStyle(
                                         color: colorOrange,
-                                        fontSize: 25,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),

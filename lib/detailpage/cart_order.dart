@@ -17,7 +17,6 @@ class CartOrder extends StatefulWidget {
 }
 
 class _CartOrderState extends State<CartOrder> {
-  // final DetailController _cartcontrol = Get.find();
   final AddtoCartController _addcontrol = Get.find();
  
   @override

@@ -29,7 +29,7 @@ class AddtoCartController extends GetxController {
       Get.snackbar("Success", "Add to Cart Successfully",
           backgroundColor: colorOrange,
           colorText: colorGrey,
-          duration: Duration(seconds: 2));
+          duration: Duration(seconds: 1));
 
       totalqty++;
     }
@@ -81,51 +81,42 @@ class AddtoCartController extends GetxController {
           backgroundColor: Colors.red[900],
           colorText: colorGrey,
           snackPosition: SnackPosition.TOP,
-          duration: Duration(seconds: 3));
+          duration: Duration(seconds: 1));
     } else {
       Get.to(() => Mypaymentpage());
     }
   }
 
-  void calculateAmount(Food food) {
-    int total = 0;
 
-    for (var food in foodList) {
-      int price = int.tryParse(food.price.replaceAll('\$', '')) ?? 0;
-      total += price;
-    }
 
-    totalprice.value = total;
-  }
+  // void completeOrder() {
+  //   String orderDate = DateTime.now().toString();
+  //   int qty = foodList.length;
+  //   double totalAmount = 0.0;
 
-  void completeOrder() {
-    String orderDate = DateTime.now().toString();
-    int qty = foodList.length;
-    double totalAmount = 0.0;
+  //   foodList.forEach((element) {
+  //     totalAmount += double.parse(element.price) * element.qty;
+  //   });
 
-    foodList.forEach((element) {
-      totalAmount += double.parse(element.price) * element.qty;
-    });
+  //   HistoryModel historyModel = HistoryModel(
+  //       orderDate: orderDate,
+  //       totalAmount: totalAmount,
+  //       qty: qty,
+  //       items: List.from(foodList));
 
-    HistoryModel historyModel = HistoryModel(
-        orderDate: orderDate,
-        totalAmount: totalAmount,
-        qty: qty,
-        items: List.from(foodList));
+  //   Get.find<HistoryController>().addToHistory(historyModel);
 
-    Get.find<HistoryController>().addToHistory(historyModel);
+  //   Get.offAll(() => MyBottomNavigation());
+  //   clearcart();
+  // }
 
-    Get.offAll(() => MyBottomNavigation());
-    clearcart();
-  }
-
-  void clearcart() {
-    foodList.clear();
-    totalqty.value = 0;
-    // totalprice.value = 0;
-    // totalAmount.value = '';
-    update();
-  }
+  // void clearcart() {
+  //   foodList.clear();
+  //   totalqty.value = 0;
+  //   // totalprice.value = 0;
+  //   // totalAmount.value = '';
+  //   update();
+  // }
 
   double countPreTotal() {
     double total = 0.0;

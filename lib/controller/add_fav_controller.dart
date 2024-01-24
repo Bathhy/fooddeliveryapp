@@ -18,7 +18,7 @@ class AddFavouriteController extends GetxController {
     Get.snackbar("Success", "Add to favourite Successfully",
         backgroundColor: colorOrange,
         colorText: colorGrey,
-        duration: Duration(seconds: 2));
+        duration: Duration(seconds: 1));
     update();
   }
 

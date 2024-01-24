@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/history_controller.dart';
-import 'package:get/get.dart';
 
 class HistoryOrderView extends StatelessWidget {
   final HistoryModel historyModel;
@@ -51,7 +49,7 @@ class HistoryOrderView extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     ),
                     SizedBox(
@@ -63,12 +61,13 @@ class HistoryOrderView extends StatelessWidget {
                           ' \$ ${historyModel.items[index].price}',
                           style: TextStyle(
                               color: colorOrange,
-                              fontSize: 23,
+                              fontSize: 19,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           width: 10,
                         ),
+                        
                       ],
                     )
                   ],

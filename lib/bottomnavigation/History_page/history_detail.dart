@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_page/history_listview.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:get/get.dart';
 
 class HistoryOrdDetail extends StatelessWidget {
@@ -19,12 +18,10 @@ class HistoryOrdDetail extends StatelessWidget {
           Expanded(child: HistoryOrderView(historyModel: historyModel)),
         ],
       ),
-      // bottomSheet: _Totalamount(),
     );
   }
 
   Widget _Totalamount() {
-    final DetailController _controller = Get.find();
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(color: Colors.white),
@@ -32,7 +29,7 @@ class HistoryOrdDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            "Total:  ${_controller.totalAmount}",
+            "Total:  \$${historyModel.totalAmount}",
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,

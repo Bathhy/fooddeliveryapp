@@ -15,7 +15,7 @@ class Mytabbar extends StatelessWidget {
         unselectedLabelColor: Colors.black,
         labelColor: colorOrange,
         indicatorColor: colorOrange,
-        labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        labelStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         tabs: categorys.map((category) {
           return Tab(text: category);
         }).toList());

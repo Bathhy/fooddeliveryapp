@@ -14,7 +14,6 @@ class favListview extends StatefulWidget {
 }
 
 class _favListviewState extends State<favListview> {
-  // final DetailController _controller = Get.find();
   final AddFavouriteController _favcontrol = Get.find();
   void initState() {
     _favcontrol.getAllFav();
