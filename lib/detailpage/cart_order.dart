@@ -56,32 +56,32 @@ class _CartOrderState extends State<CartOrder> {
     );
   }
 
-  Widget _buildNoItems() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.favorite_outline_rounded,
-            size: 150,
-            color: Colors.grey[400],
-          ),
-          Text(
-            'No favourite foods yet',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-          Text(
-            'Please add your favourite food here',
-            style: TextStyle(
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontSize: 15),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildNoItems() {
+  //   return Center(
+  //     child: Column(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         Icon(
+  //           Icons.favorite_outline_rounded,
+  //           size: 150,
+  //           color: Colors.grey[400],
+  //         ),
+  //         Text(
+  //           'No favourite foods yet',
+  //           style: TextStyle(
+  //               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+  //         ),
+  //         Text(
+  //           'Please add your favourite food here',
+  //           style: TextStyle(
+  //               color: Colors.black54,
+  //               fontWeight: FontWeight.bold,
+  //               fontSize: 15),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   AppBar _MyCartAppbar() {
     return AppBar(

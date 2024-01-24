@@ -33,7 +33,6 @@ class AddtoCartController extends GetxController {
 
       totalqty++;
     }
-    //cartCount++;
   }
 
   void getAllFood() async {
@@ -64,12 +63,11 @@ class AddtoCartController extends GetxController {
 
   void increateQty(int index) {
     foodList[index].qty += 1;
-
     update();
   }
 
   void decreateQty(int index) {
-    if (foodList[index].qty < 0) {
+    if (foodList[index].qty <= 1) {
       return;
     }
 
@@ -102,18 +100,18 @@ class AddtoCartController extends GetxController {
 
   void completeOrder() {
     String orderDate = DateTime.now().toString();
-    int qty = foodcart.length;
+    int qty = foodList.length;
     double totalAmount = 0.0;
 
-    foodcart.forEach((element) {
-      totalAmount += double.parse(element.price);
+    foodList.forEach((element) {
+      totalAmount += double.parse(element.price) * element.qty;
     });
 
     HistoryModel historyModel = HistoryModel(
         orderDate: orderDate,
         totalAmount: totalAmount,
         qty: qty,
-        items: List.from(foodcart));
+        items: List.from(foodList));
 
     Get.find<HistoryController>().addToHistory(historyModel);
 
@@ -127,5 +125,13 @@ class AddtoCartController extends GetxController {
     // totalprice.value = 0;
     // totalAmount.value = '';
     update();
+  }
+
+  double countPreTotal() {
+    double total = 0.0;
+    foodList.forEach((element) {
+      total += (double.parse(element.price)) * element.qty;
+    });
+    return total;
   }
 }

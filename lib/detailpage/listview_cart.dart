@@ -99,7 +99,7 @@ class _CartListviewState extends State<CartListview> {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 19,
                           ),
                         ),
                         SizedBox(
@@ -111,11 +111,11 @@ class _CartListviewState extends State<CartListview> {
                               '\$ ${food.price}',
                               style: TextStyle(
                                   color: colorOrange,
-                                  fontSize: 17,
+                                  fontSize: 19,
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
-                              width: 10,
+                              width: 20,
                             ),
                             //Box increment and decrement
                             Container(
@@ -130,7 +130,7 @@ class _CartListviewState extends State<CartListview> {
                                   //decrement product
                                   IconButton(
                                       onPressed: () {
-                                        // _controller.cartCount;
+                                        // decrease cart count
                                         controller.decreateQty(index);
                                       },
                                       icon: Icon(
@@ -142,7 +142,7 @@ class _CartListviewState extends State<CartListview> {
                                         horizontal: 10),
                                     child: Text(
                                       //output number count
-                                      // " ${_controller.cartCount}",
+
                                       "${food.qty}",
                                       style: TextStyle(
                                         color: Colors.white,
@@ -154,6 +154,7 @@ class _CartListviewState extends State<CartListview> {
                                   //add product increment
                                   IconButton(
                                       onPressed: () {
+                                        //increase cart count
                                         controller.increateQty(index);
                                       },
                                       icon: Icon(
@@ -178,17 +179,5 @@ class _CartListviewState extends State<CartListview> {
     });
   }
 
-  void increament() {
-    setState(() {
-      count++;
-    });
-  }
-
-  void dcreament() {
-    setState(() {
-      if (count > 1) {
-        count--;
-      }
-    });
-  }
+  
 }

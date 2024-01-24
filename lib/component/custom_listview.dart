@@ -117,7 +117,7 @@ class Food {
         imagecate: [imagesour, imagelays]),
     Food(
         img: imagespicy,
-        name: "Cheese sauce",
+        name: "Spicy sauce",
         price: "2",
         category: "Sauces",
         imagecate: [imagespicy, imagecheese]),

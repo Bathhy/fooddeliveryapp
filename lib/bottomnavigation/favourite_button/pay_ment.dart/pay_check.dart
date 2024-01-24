@@ -8,14 +8,13 @@ import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:get/get.dart';
 
 class Mypaymentpage extends StatelessWidget {
-   Mypaymentpage({super.key});
+  Mypaymentpage({super.key});
 
-   final AddtoCartController _cartcontrol = Get.find();
-    final HistoryController _hiscontroller = Get.find();
+  final AddtoCartController _cartcontrol = Get.find();
+  final HistoryController _hiscontroller = Get.find();
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _AppBarPayment(),
@@ -70,31 +69,31 @@ class Mypaymentpage extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     Text(
-          //       'Total Amount :',
-          //       style: TextStyle(
-          //           color: Colors.black,
-          //           fontSize: 20,
-          //           fontWeight: FontWeight.w700),
-          //     ),
-          //     Padding(
-          //       padding: const EdgeInsets.only(right: 40),
-          //       child: Obx(
-          //         () => Text(
-          //           ' \$ ${}',
-          //           style: TextStyle(
-          //               color: Colors.black,
-          //               fontSize: 20,
-          //               fontWeight: FontWeight.w700),
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          // Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Total Amount :',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 40),
+                child: Obx(
+                  () => Text(
+                    ' \$ ${_cartcontrol.countPreTotal()}',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 40),
             child: Container(
@@ -102,7 +101,8 @@ class Mypaymentpage extends StatelessWidget {
                 child: CustomButton(
                     title: "Complete Order",
                     callback: () {
-                      _hiscontroller.completeOrder(List.from(_cartcontrol.foodList));
+                      _hiscontroller
+                          .completeOrder(List.from(_cartcontrol.foodList));
                       _cartcontrol.remvoeAll();
                     })),
           )

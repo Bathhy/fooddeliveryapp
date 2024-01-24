@@ -27,7 +27,7 @@ class HistoryController extends GetxController {
     double totalAmount = 0.0;
 
     foods.forEach((element) {
-      totalAmount += double.parse(element.price);
+      totalAmount += double.parse(element.price) * element.qty;
     });
 
     HistoryModel historyModel = HistoryModel(
