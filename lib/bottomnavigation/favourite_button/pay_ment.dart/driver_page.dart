@@ -54,11 +54,17 @@ class _DriverpageState extends State<Driverpage> {
             ),
           ),
           Spacer(),
-          CustomButton(
-              title: "Finish Order",
-              callback: () {
-                Get.offAll(() => MyBottomNavigation());
-              })
+          Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: CustomButton(
+                  title: "Finish Order",
+                  callback: () {
+                    Get.offAll(() => MyBottomNavigation());
+                  }),
+            ),
+          )
         ],
       ),
     );

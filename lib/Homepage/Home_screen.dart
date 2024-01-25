@@ -8,7 +8,9 @@ import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
+import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:fodddelieveryapp/search/search_food.dart';
+import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
 import 'package:get/get.dart';
 import 'package:fodddelieveryapp/Homepage/tab_bar.dart';
 import 'package:fodddelieveryapp/component/custom_seemorebutton.dart';
@@ -178,7 +180,10 @@ class Drawerclass extends StatelessWidget {
           ),
           SizedBox(height: 100),
           TextButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              productStorage.instance.clearAcc();
+              Get.offAll(() => MyLoginPage());
+            },
             icon: Icon(
               Icons.arrow_forward_sharp,
               color: Colors.white,
