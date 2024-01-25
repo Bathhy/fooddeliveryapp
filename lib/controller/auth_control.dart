@@ -14,6 +14,7 @@ class Authcontroller extends GetxController {
   final Lemail = TextEditingController();
   final Lpassword = TextEditingController();
  var ispasshidden = true.obs;
+ var confirmpasshiden = true.obs;
 final TextEditingController passwordController = TextEditingController();
   void register(String email, String password, String cpassword) async {
     if (email == "" || password == "" || cpassword == "") {
@@ -49,5 +50,8 @@ final TextEditingController passwordController = TextEditingController();
   }
   void toggleObscureText() {
     ispasshidden.value = !ispasshidden.value;
+  }
+  void ConfirmtoggleObscureText() {
+    confirmpasshiden.value = !confirmpasshiden.value;
   }
 }

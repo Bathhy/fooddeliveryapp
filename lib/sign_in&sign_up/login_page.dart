@@ -84,8 +84,7 @@ class MyLoginPage extends StatelessWidget {
             child: TextFormField(
               controller: authController.Lemail,
               decoration: const InputDecoration(
-                labelText: 'Email Address',
-              ),
+                  labelText: 'Email Address', hintText: 'messi@gmail.com'),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -99,6 +98,7 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                     labelText: 'Password',
+                    hintText: '8 digit password',
                     suffixIcon: InkWell(
                       child: Icon(
                           authController.ispasshidden.value
@@ -161,8 +161,11 @@ class MyLoginPage extends StatelessWidget {
               controller: _authController.Remail,
               decoration: const InputDecoration(
                 labelText: 'Email Address',
+                hintText: 'messi@gmail.com',
               ),
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           const SizedBox(height: 10),
@@ -175,6 +178,7 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Password',
+                  hintText: '8 digit password',
                   suffixIcon: InkWell(
                     child: Icon(
                         authController.ispasshidden.value
@@ -187,7 +191,9 @@ class MyLoginPage extends StatelessWidget {
                     },
                   ),
                 ),
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -197,21 +203,26 @@ class MyLoginPage extends StatelessWidget {
             child: Obx(
               () => TextFormField(
                 controller: _authController.RcPassword,
+                obscureText: authController.confirmpasshiden.value,
+                obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
+                  hintText: '8 digit password',
                   suffixIcon: InkWell(
                     child: Icon(
-                        authController.ispasshidden.value
+                        authController.confirmpasshiden.value
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: Colors.grey,
                         size: 25),
                     onTap: () {
-                      authController.toggleObscureText();
+                      authController.ConfirmtoggleObscureText();
                     },
                   ),
                 ),
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

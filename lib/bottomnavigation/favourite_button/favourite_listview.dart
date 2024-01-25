@@ -41,8 +41,9 @@ class _favListviewState extends State<favListview> {
                     onPressed: (context) {
                       _favcontrol.deleteByIndex(foodfav);
                     },
-                    backgroundColor: Colors.red,
+                    backgroundColor: Colors.grey.shade300,
                     icon: Icons.delete,
+                    foregroundColor: Colors.red.shade700,
                     spacing: 10,
                     autoClose: true,
                     borderRadius: BorderRadius.circular(10),
