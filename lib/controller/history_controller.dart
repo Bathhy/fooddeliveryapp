@@ -1,5 +1,6 @@
 import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
+import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/driver_page.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
@@ -39,6 +40,7 @@ class HistoryController extends GetxController {
     await _historyStorage.setDataHistory(historyModel);
     Get.find<AddtoCartController>().remvoeAll();
     getAllHistory();
-    Get.offAll(() => MyBottomNavigation());
+    // W
+    Get.to(() => Driverpage());
   }
 }
