@@ -10,7 +10,7 @@ class productStorage {
   productStorage._internal();
   Future<SharedPreferences> _getSharePreference() async =>
       await SharedPreferences.getInstance();
- 
+
   //Cart Local
   //
   // set indi
@@ -93,12 +93,28 @@ class productStorage {
   // ==============
 
   // Save 1 1
-  Future<void> setFavlist(Food foodfav) async {
+  Future<bool> setFavlist(Food foodfav) async {
     final favfoood = await getFav();
-    favfoood.add(foodfav);
-    saveDataFav(favfoood);
+    final isExting =
+        favfoood.indexWhere((element) => element.name == foodfav.name);
+
+    if (isExting == -1) {
+      favfoood.add(foodfav);
+      return saveDataFav(favfoood);
+    }
+    return false;
   }
 
+  // Future<bool> setItem(ProductDetile productDetile, String key) async {
+  //   final getProductDetile = await getItems(key);
+  //   final isExiting = getProductDetile
+  //       .indexWhere((element) => element.id == productDetile.id);
+  //   if (isExiting == -1) {
+  //     getProductDetile.add(productDetile);
+  //     return await setItems(getProductDetile, key);
+  //   }
+  //   return false;
+  // }
   // Save in favorite
   Future<bool> saveDataFav(List<Food> favmodel) async {
     final pref = await _getSharePreference();
@@ -128,7 +144,7 @@ class productStorage {
   }
 
   // Future<bool> addTofav(Food food) {
-  //     final 
+  //     final
   // }
 
   // Future<List<Food>> getFavs() {

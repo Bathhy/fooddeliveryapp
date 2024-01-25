@@ -22,6 +22,7 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
   final AddtoCartController _cartController = Get.find();
   @override
   void initState() {
+    _favcontroller.initIcons(widget.food);
     super.initState();
   }
 
@@ -66,15 +67,18 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
         color: Colors.black,
       ),
       actions: [
-        Obx(
-          () => IconButton(
-            onPressed: () {
-              _favcontroller.saveFavData(widget.food);
-            },
-            icon: Icon(Icons.favorite),
-            color: _favcontroller.isIconColored.value ? colorGrey : colorOrange,
-          ),
-        )
+        IconButton(onPressed: () {
+          _favcontroller.saveFavData(widget.food);
+        }, icon: GetBuilder<AddFavouriteController>(
+          builder: (_) {
+            return Icon(
+              _favcontroller.favStatus
+                  ? Icons.favorite
+                  : Icons.favorite_border_outlined,
+              color: colorOrange,
+            );
+          },
+        )),
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:fodddelieveryapp/image/image_declare.dart';
-
+import 'package:get/get.dart';
 class Food {
   String img = "";
   String name = "";
@@ -7,6 +7,7 @@ class Food {
   String? category;
   List<String> imagecate = [];
   int qty = 1;
+   RxBool isFavorite = false.obs;
 
   Food({
     required String img,

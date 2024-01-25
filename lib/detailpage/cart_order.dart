@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
-import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/detailpage/listview_cart.dart';

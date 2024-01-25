@@ -22,8 +22,8 @@ class _favListviewState extends State<favListview> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AddFavouriteController>(builder: (controller) {
-      return ListView.builder(
+    return Obx(
+      () => ListView.builder(
         itemCount: _favcontrol.favouritefood.length,
         itemBuilder: (context, index) {
           final foodfav = _favcontrol.favouritefood[index];
@@ -107,7 +107,7 @@ class _favListviewState extends State<favListview> {
             ),
           );
         },
-      );
-    });
+      ),
+    );
   }
 }

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
-import 'package:fodddelieveryapp/bottomnavigation/History_page/history_model.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/pay_ment.dart/pay_check.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_listview.dart';
-import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
 
