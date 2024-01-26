@@ -33,8 +33,8 @@ class HistoryController extends GetxController {
 
     HistoryModel historyModel = HistoryModel(
         orderDate: orderDate,
-        totalAmount: totalAmount,
         qty: qty,
+        totalAmount: totalAmount,
         items: List.from(foods));
 
     await _historyStorage.setDataHistory(historyModel);

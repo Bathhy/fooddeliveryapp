@@ -16,7 +16,7 @@ class Food {
     required String price,
     String? category,
     List<String>? imagecate,
-    int qty = 1,
+    final int qty = 1,
   }) {
     this.img = img;
     this.name = name;
@@ -31,6 +31,7 @@ class Food {
       'img': this.img,
       'name': this.name,
       'price': this.price,
+      'qty': this.qty,
       'category': this.category,
       'imagecate': this.imagecate,
     };
@@ -42,6 +43,7 @@ class Food {
       name: json['name'] ?? "",
       price: json['price'] ?? "",
       category: json['category'],
+      qty: json['qty'] ?? 1,
       imagecate: List<String>.from(json['imagecate'] ?? []),
     );
   }

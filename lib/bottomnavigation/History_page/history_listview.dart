@@ -67,7 +67,13 @@ class HistoryOrderView extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        
+                        Text(
+                          ' Items: ${historyModel.items[index].qty}',
+                          style: TextStyle(
+                              color: colorOrange,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ],
                     )
                   ],

@@ -22,10 +22,11 @@ class HistoryModel {
           .toList();
     }
     return HistoryModel(
-        orderDate: json["orderDate"],
-        totalAmount: json['totalAmount'],
-        qty: json['qty'],
-        items: detailHistory);
+      orderDate: json["orderDate"],
+      totalAmount: json['totalAmount'],
+      qty: json['qty'],
+      items: detailHistory,
+    );
   }
 
   Map<String, dynamic> toMap() {

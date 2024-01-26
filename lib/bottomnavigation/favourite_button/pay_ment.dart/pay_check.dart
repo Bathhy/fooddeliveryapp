@@ -48,22 +48,20 @@ class Mypaymentpage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Total Quantity :',
+                  'Duration :',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w700),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 60),
-                  child: Obx(
-                    () => Text(
-                      _cartcontrol.totalqty.toString(),
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700),
-                    ),
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Text(
+                    '15-30 minutes',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
                   ),
                 ),
               ],
@@ -85,7 +83,7 @@ class Mypaymentpage extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 40),
+                  padding: const EdgeInsets.only(right: 80),
                   child: Obx(
                     () => Text(
                       ' \$ ${_cartcontrol.countPreTotal()}',
