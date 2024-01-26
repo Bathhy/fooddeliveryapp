@@ -82,7 +82,7 @@ class _favListviewState extends State<favListview> {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 23,
+                            fontSize: 18,
                           ),
                         ),
                         SizedBox(
@@ -94,7 +94,7 @@ class _favListviewState extends State<favListview> {
                               '\$ ${foodfav.price}',
                               style: TextStyle(
                                   color: colorOrange,
-                                  fontSize: 22,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
                           ],
