@@ -19,3 +19,7 @@ const imagesour = 'assets/images/sour snack.jpg';
 const imagecheese = 'assets/images/cheese sauce2.jpg';
 const imageswipe = 'assets/images/swip.png';
 const imagedriver = 'assets/images/driver.gif';
+const imagegarlic = 'assets/images/Garlic Sauce.jpg';
+const imageLime = 'assets/images/lime sauce.jpg';
+const imagelaysonion = 'assets/images/lays onion.jpg';
+const kitkat = 'assets/images/kitkat.jpg';

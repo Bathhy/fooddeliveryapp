@@ -6,7 +6,6 @@ import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
 
 class AddtoCartController extends GetxController {
-  RxList<Food> foodcart = <Food>[].obs;
   // final productStorage _favstorage = productStorage.instance;
 
   final foodList = <Food>[].obs;
@@ -83,8 +82,6 @@ class AddtoCartController extends GetxController {
       Get.to(() => Mypaymentpage());
     }
   }
-
-
 
   // void completeOrder() {
   //   String orderDate = DateTime.now().toString();

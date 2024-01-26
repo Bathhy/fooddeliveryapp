@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fodddelieveryapp/bottomnavigation/favourite_button/favourite_listview.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
-import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +13,7 @@ class Myfavourite extends StatefulWidget {
 }
 
 class _MyfavouriteState extends State<Myfavourite> {
-  final DetailController _favcontr = Get.find();
+  final AddFavouriteController _favcontrol = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _MyfavouriteState extends State<Myfavourite> {
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: favListview(),
+              child: _buildFavcontent(),
             ),
           ),
         ],
@@ -53,43 +53,43 @@ class _MyfavouriteState extends State<Myfavourite> {
     );
   }
 
-  // Widget _buildFavcontent() {
-  //   return GetBuilder(
-  //       init: _favcontr,
-  //       builder: (controller) {
-  //         if (_favcontr.favoriteFoods.isEmpty) {
-  //           return Center(
-  //             child: Column(
-  //               mainAxisAlignment: MainAxisAlignment.center,
-  //               children: [
-  //                 Icon(
-  //                   Icons.favorite_outline_rounded,
-  //                   size: 150,
-  //                   color: Colors.grey[400],
-  //                 ),
-  //                 Text(
-  //                   'No favourite foods yet',
-  //                   style: TextStyle(
-  //                       color: Colors.black,
-  //                       fontWeight: FontWeight.bold,
-  //                       fontSize: 15),
-  //                 ),
-  //                 Text(
-  //                   'Please add your favourite food here',
-  //                   style: TextStyle(
-  //                       color: Colors.black54,
-  //                       fontWeight: FontWeight.bold,
-  //                       fontSize: 15),
-  //                 ),
-  //               ],
-  //             ),
-  //           );
-  //         } else {
-  //           return Container(
-  //             padding: EdgeInsets.symmetric(horizontal: 20),
-  //             child: favListview(),
-  //           );
-  //         }
-  //       });
-  // }
+  Widget _buildFavcontent() {
+    return GetBuilder(
+        init: _favcontrol,
+        builder: (controller) {
+          if (_favcontrol.favouritefood.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.favorite_outline_rounded,
+                    size: 150,
+                    color: Colors.grey[400],
+                  ),
+                  Text(
+                    'No favourite foods yet',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                  Text(
+                    'Please add your favourite food here',
+                    style: TextStyle(
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            return Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: favListview(),
+            );
+          }
+        });
+  }
 }

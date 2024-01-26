@@ -42,56 +42,62 @@ class Mypaymentpage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Total Quantity :',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Obx(
-                  () => Text(
-                    _cartcontrol.totalqty.toString(),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total Quantity :',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 60),
+                  child: Obx(
+                    () => Text(
+                      _cartcontrol.totalqty.toString(),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(
             height: 30,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Total Amount :',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: Obx(
-                  () => Text(
-                    ' \$ ${_cartcontrol.countPreTotal()}',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total Amount :',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 40),
+                  child: Obx(
+                    () => Text(
+                      ' \$ ${_cartcontrol.countPreTotal()}',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Spacer(),
           Padding(

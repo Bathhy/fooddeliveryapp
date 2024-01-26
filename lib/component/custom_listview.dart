@@ -1,5 +1,6 @@
 import 'package:fodddelieveryapp/image/image_declare.dart';
 import 'package:get/get.dart';
+
 class Food {
   String img = "";
   String name = "";
@@ -7,7 +8,7 @@ class Food {
   String? category;
   List<String> imagecate = [];
   int qty = 1;
-   RxBool isFavorite = false.obs;
+  RxBool isFavorite = false.obs;
 
   Food({
     required String img,
@@ -106,16 +107,28 @@ class Food {
         ]),
     Food(
         img: imagelays,
-        name: "Spicy cheetos",
+        name: "Classic Lays",
         price: "6",
         category: "Snacks",
         imagecate: [imagelays, imagesour]),
     Food(
         img: imagesour,
-        name: "Juicy cheetos",
+        name: "Juicy Doritos",
         price: "6",
         category: "Snacks",
         imagecate: [imagesour, imagelays]),
+    Food(
+        img: kitkat,
+        name: "Kitkat",
+        price: "10",
+        category: "Snacks",
+        imagecate: [kitkat, imagelaysonion, imagesour, imagelays]),
+    Food(
+        img: imagelaysonion,
+        name: "Lays Cream&Onion",
+        price: "8",
+        category: "Snacks",
+        imagecate: [imagelaysonion, imagesour, imagelays, kitkat]),
     Food(
         img: imagespicy,
         name: "Spicy sauce",
@@ -128,6 +141,28 @@ class Food {
         price: "2",
         category: "Sauces",
         imagecate: [
+          imagecheese,
+          imagespicy,
+        ]),
+    Food(
+        img: imagegarlic,
+        name: "Garlic sauce",
+        price: "5",
+        category: "Sauces",
+        imagecate: [
+          imagegarlic,
+          imageLime,
+          imagecheese,
+          imagespicy,
+        ]),
+    Food(
+        img: imageLime,
+        name: "Lime sauce",
+        price: "3",
+        category: "Sauces",
+        imagecate: [
+          imageLime,
+          imagegarlic,
           imagecheese,
           imagespicy,
         ]),

@@ -17,9 +17,10 @@ class CartOrder extends StatefulWidget {
 
 class _CartOrderState extends State<CartOrder> {
   final AddtoCartController _addcontrol = Get.find();
- 
+
   @override
   void initState() {
+    _addcontrol.getAllFood();
     super.initState();
   }
 
@@ -39,11 +40,10 @@ class _CartOrderState extends State<CartOrder> {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: CartListview(),
-                  // child: _buildNoItems(),
-                  // child: _addcontrol.foodList.isEmpty
-                  //     ? CartListview()
-                  //     : _buildNoItems(),
+                  // child: CartListview(),
+                  child: _addcontrol.foodList.isEmpty
+                      ? _buildNoItems()
+                      : _buildhasItems(),
                 ),
               ),
               _customButton(),
@@ -54,32 +54,36 @@ class _CartOrderState extends State<CartOrder> {
     );
   }
 
-  // Widget _buildNoItems() {
-  //   return Center(
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children: [
-  //         Icon(
-  //           Icons.favorite_outline_rounded,
-  //           size: 150,
-  //           color: Colors.grey[400],
-  //         ),
-  //         Text(
-  //           'No favourite foods yet',
-  //           style: TextStyle(
-  //               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-  //         ),
-  //         Text(
-  //           'Please add your favourite food here',
-  //           style: TextStyle(
-  //               color: Colors.black54,
-  //               fontWeight: FontWeight.bold,
-  //               fontSize: 15),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+  Widget _buildhasItems() {
+    return CartListview();
+  }
+
+  Widget _buildNoItems() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.shopping_cart_outlined,
+            size: 150,
+            color: Colors.grey[400],
+          ),
+          Text(
+            'No foods in cart yet',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          Text(
+            'Please add your  food here',
+            style: TextStyle(
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 15),
+          ),
+        ],
+      ),
+    );
+  }
 
   AppBar _MyCartAppbar() {
     return AppBar(
