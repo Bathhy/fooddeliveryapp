@@ -86,7 +86,7 @@ class _MyfavouriteState extends State<Myfavourite> {
             );
           } else {
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: favListview(),
             );
           }

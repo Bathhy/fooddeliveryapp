@@ -83,7 +83,7 @@ class Mypaymentpage extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 80),
+                  padding: const EdgeInsets.only(right: 90),
                   child: Obx(
                     () => Text(
                       ' \$ ${_cartcontrol.countPreTotal()}',

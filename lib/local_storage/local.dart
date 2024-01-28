@@ -105,16 +105,7 @@ class productStorage {
     return false;
   }
 
-  // Future<bool> setItem(ProductDetile productDetile, String key) async {
-  //   final getProductDetile = await getItems(key);
-  //   final isExiting = getProductDetile
-  //       .indexWhere((element) => element.id == productDetile.id);
-  //   if (isExiting == -1) {
-  //     getProductDetile.add(productDetile);
-  //     return await setItems(getProductDetile, key);
-  //   }
-  //   return false;
-  // }
+
   // Save in favorite
   Future<bool> saveDataFav(List<Food> favmodel) async {
     final pref = await _getSharePreference();
@@ -143,17 +134,7 @@ class productStorage {
     pref.clear();
   }
 
-  // Future<bool> addTofav(Food food) {
-  //     final
-  // }
-
-  // Future<List<Food>> getFavs() {
-
-  // }
-
-  //  Future<bool> addTofavs(List<Food> listfood) {
-
-  // }
+  
 
   Future<bool> removeFav(Food food) async {
     final allFoods = await getFav();

@@ -46,11 +46,11 @@ class _DriverpageState extends State<Driverpage> {
             height: 30,
           ),
           Text(
-            "Estimate Time is: 30Minute",
+            "Estimate Time is: 30Minutes",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 25,
+              fontSize: 23,
             ),
           ),
           Spacer(),

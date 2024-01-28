@@ -139,18 +139,14 @@ class _CartListviewState extends State<CartListview> {
                                         Icons.remove,
                                         color: Colors.white,
                                       )),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                    child: Text(
-                                      //output number count
+                                  Text(
+                                    //output number count
 
-                                      "${food.qty}",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                      ),
+                                    "${food.qty}",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
                                     ),
                                   ),
                                   //add product increment

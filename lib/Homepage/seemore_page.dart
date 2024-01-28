@@ -112,7 +112,7 @@ class _SeemorepageState extends State<Seemorepage> {
                                       item.name,
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),

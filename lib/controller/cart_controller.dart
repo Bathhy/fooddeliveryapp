@@ -6,7 +6,6 @@ import 'package:fodddelieveryapp/local_storage/local.dart';
 import 'package:get/get.dart';
 
 class AddtoCartController extends GetxController {
-  // final productStorage _favstorage = productStorage.instance;
 
   final foodList = <Food>[].obs;
   var totalqty = 0.obs;

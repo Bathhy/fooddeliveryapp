@@ -15,8 +15,8 @@ class _SearchPageState extends State<SearchPage> {
   List<Food> _dataList = [];
 
   void search(String title) {
-    final tmpList =
-        Food.foodlist.where((element) => element.name.contains(title));
+    final tmpList = Food.foodlist.where(
+        (element) => element.name.toLowerCase().contains(title.toLowerCase()));
     setState(() {
       _dataList = tmpList.toList();
     });
@@ -146,7 +146,7 @@ class _SearchPageState extends State<SearchPage> {
                                           item.name,
                                           style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
