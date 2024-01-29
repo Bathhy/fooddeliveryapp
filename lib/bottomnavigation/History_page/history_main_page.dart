@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 
 class Myhistory extends StatefulWidget {
   const Myhistory({super.key});
-  // final HistoryModel historyModel;
   @override
   State<Myhistory> createState() => _MyhistoryState();
 }
@@ -46,16 +45,14 @@ class _MyhistoryState extends State<Myhistory> {
         ),
       ),
       body: Obx(
-        () => Expanded(
-          child: _BuildHistoryempty(),
-        ),
+        () => _BuildHistoryempty(),
       ),
     );
   }
 
   Widget _BuildHistoryempty() {
     if (_controller.foodhist.isEmpty) {
-      return _BuildnoHistory();
+      return Center(child: _BuildnoHistory());
     } else {
       return Container(
         child: _listviewCard(),
@@ -64,29 +61,25 @@ class _MyhistoryState extends State<Myhistory> {
   }
 
   Widget _BuildnoHistory() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.shopping_cart_outlined,
-            size: 150,
-            color: Colors.grey[400],
-          ),
-          Text(
-            'No History yet',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-          Text(
-            'Please Order Something \n to show',
-            style: TextStyle(
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontSize: 15),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.shopping_cart_outlined,
+          size: 150,
+          color: Colors.grey[400],
+        ),
+        Text(
+          'No History yet',
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),
+        ),
+        Text(
+          'Please Order Something \n to show',
+          style: TextStyle(
+              color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 15),
+        ),
+      ],
     );
   }
 

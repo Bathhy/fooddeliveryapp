@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fodddelieveryapp/controller/splash_controller.dart';
-import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
-import 'package:get/get.dart';
+import 'package:fodddelieveryapp/Homepage/bottomnavi_bar.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/component/custom_button.dart';
+import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/image/image_declare.dart';
+import 'package:fodddelieveryapp/sign_in&sign_up/login_page.dart';
+import 'package:get/get.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -14,11 +15,12 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  final SplashController _splashcontrol = Get.find();
-  void initState() {
-    _splashcontrol.intiSplashScreen();
-    super.initState();
-  }
+  final Authcontroller _authcontroller = Get.find();
+  // final SplashController _splashcontrol = Get.find();
+  // void initState() {
+  //   _splashcontrol.intiSplashScreen();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +96,9 @@ class _SplashscreenState extends State<Splashscreen> {
                 child: CustomButton(
                   callback: () {
                     Get.to(() => MyLoginPage());
+                    _authcontroller.isLogin()
+                        ? Get.offAll(() => MyBottomNavigation())
+                        : Get.offAll(() => MyLoginPage());
                   },
                   title: "Get Started",
                   color: Colors.white,

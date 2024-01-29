@@ -98,7 +98,7 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: '8 digit password',
+                    hintText: 'Enter password',
                     suffixIcon: InkWell(
                       child: Icon(
                           authController.ispasshidden.value
@@ -178,7 +178,7 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  hintText: '8 digit password',
+                  hintText: 'Enter password',
                   suffixIcon: InkWell(
                     child: Icon(
                         authController.ispasshidden.value
@@ -207,7 +207,7 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
-                  hintText: '8 digit password',
+                  hintText: 'Enter password',
                   suffixIcon: InkWell(
                     child: Icon(
                         authController.confirmpasshiden.value
