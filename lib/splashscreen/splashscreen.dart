@@ -95,7 +95,6 @@ class _SplashscreenState extends State<Splashscreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomButton(
                   callback: () {
-                    Get.to(() => MyLoginPage());
                     _authcontroller.isLogin()
                         ? Get.offAll(() => MyBottomNavigation())
                         : Get.offAll(() => MyLoginPage());
