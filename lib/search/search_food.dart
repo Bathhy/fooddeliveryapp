@@ -36,7 +36,10 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: colorGrey,
         leading: IconButton(
             onPressed: () {
-              Get.back();
+              FocusScope.of(context).unfocus();
+              Future.delayed(Duration(milliseconds: 250), () {
+                Get.back();
+              });
             },
             icon: Icon(Icons.arrow_back_ios)),
         title: TextField(

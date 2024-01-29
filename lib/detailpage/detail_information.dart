@@ -31,27 +31,29 @@ class _DetailfoodInfoState extends State<DetailfoodInfo> {
     return Scaffold(
       backgroundColor: colorGrey,
       appBar: _buildAppBar(),
-      body: Column(
-        children: [
-          DescriptionDetailpage(
-            food: widget.food,
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-          ),
-          SizedBox(height: 100),
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: CustomButton(
-              title: 'Add to cart',
-              callback: () {
-                _cartController.addTocart(widget.food);
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            DescriptionDetailpage(
+              food: widget.food,
             ),
-          ),
-        ],
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+            ),
+            SizedBox(height: 100),
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: CustomButton(
+                title: 'Add to cart',
+                callback: () {
+                  _cartController.addTocart(widget.food);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

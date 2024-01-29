@@ -82,34 +82,7 @@ class AddtoCartController extends GetxController {
     }
   }
 
-  // void completeOrder() {
-  //   String orderDate = DateTime.now().toString();
-  //   int qty = foodList.length;
-  //   double totalAmount = 0.0;
-
-  //   foodList.forEach((element) {
-  //     totalAmount += double.parse(element.price) * element.qty;
-  //   });
-
-  //   HistoryModel historyModel = HistoryModel(
-  //       orderDate: orderDate,
-  //       totalAmount: totalAmount,
-  //       qty: qty,
-  //       items: List.from(foodList));
-
-  //   Get.find<HistoryController>().addToHistory(historyModel);
-
-  //   Get.offAll(() => MyBottomNavigation());
-  //   clearcart();
-  // }
-
-  // void clearcart() {
-  //   foodList.clear();
-  //   totalqty.value = 0;
-  //   // totalprice.value = 0;
-  //   // totalAmount.value = '';
-  //   update();
-  // }
+  
 
   double countPreTotal() {
     double total = 0.0;
