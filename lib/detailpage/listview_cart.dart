@@ -46,9 +46,9 @@ class _CartListviewState extends State<CartListview> {
                     onPressed: (context) {
                       _favcontrol.saveFavData(food);
                     },
-                    backgroundColor: Colors.grey.shade300,
+                    backgroundColor: Colors.green,
                     icon: Icons.favorite_border,
-                    foregroundColor: Colors.green,
+                    foregroundColor: Colors.grey.shade300,
                     spacing: 12,
                     autoClose: true,
                     borderRadius: BorderRadius.circular(10),
@@ -60,8 +60,8 @@ class _CartListviewState extends State<CartListview> {
                     onPressed: (context) {
                       _addcontrol.removeOne(food);
                     },
-                    backgroundColor: Colors.grey.shade300,
-                    foregroundColor: Colors.red.shade700,
+                    backgroundColor: Colors.red.shade700,
+                    foregroundColor: Colors.grey.shade300,
                     icon: Icons.delete,
                     spacing: 12,
                     autoClose: true,

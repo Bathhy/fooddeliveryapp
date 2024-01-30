@@ -7,6 +7,7 @@ import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
+import 'package:fodddelieveryapp/controller/history_controller.dart';
 import 'package:fodddelieveryapp/controller/home_controller.dart';
 import 'package:fodddelieveryapp/detailpage/cart_order.dart';
 import 'package:fodddelieveryapp/local_storage/local.dart';
@@ -32,6 +33,8 @@ class _HomescreenState extends State<Homescreen>
   final DetailController _cartController = Get.find();
   final AddtoCartController _addtoCartController = Get.find();
 
+  final HistoryController _historyController = Get.find();
+
   final AddFavouriteController _favcontrol = Get.find();
 
   @override
@@ -45,6 +48,7 @@ class _HomescreenState extends State<Homescreen>
 
     Future.microtask(() => _homeController.filterByCategory(categorys.first));
     _favcontrol.getAllFav();
+    _addtoCartController.totalqty;
     super.initState();
   }
 
@@ -73,21 +77,22 @@ class _HomescreenState extends State<Homescreen>
                   ),
                 ),
                 Positioned(
-                    top: 5,
-                    left: 0,
-                    bottom: 20,
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundColor: colorOrange,
-                      child: Center(
-                        child: Obx(
-                          () => Text(
-                            _addtoCartController.totalqty.toString(),
-                            style: TextStyle(color: Colors.white),
-                          ),
+                  top: 5,
+                  left: 0,
+                  bottom: 20,
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: colorOrange,
+                    child: Center(
+                      child: Obx(
+                        () => Text(
+                          _addtoCartController.totalqty.toString(),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

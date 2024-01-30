@@ -117,6 +117,7 @@ class _MyhistoryState extends State<Myhistory> {
                         fit: BoxFit.fill,
                       ),
                     ),
+                    SizedBox(width: 12 ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
