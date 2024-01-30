@@ -112,13 +112,13 @@ class Food {
         name: "Classic Lays",
         price: "6",
         category: "Snacks",
-        imagecate: [imagelays, imagesour]),
+        imagecate: [imagelays, imagesour, kitkat, imagelaysonion]),
     Food(
         img: imagesour,
         name: "Juicy Doritos",
         price: "6",
         category: "Snacks",
-        imagecate: [imagesour, imagelays]),
+        imagecate: [imagesour, imagelays, imagelaysonion, kitkat]),
     Food(
         img: kitkat,
         name: "Kitkat",
@@ -136,16 +136,13 @@ class Food {
         name: "Spicy sauce",
         price: "2",
         category: "Sauces",
-        imagecate: [imagespicy, imagecheese]),
+        imagecate: [imagespicy, imagecheese, imageLime, imagegarlic]),
     Food(
         img: imagecheese,
         name: "Cheese sauce",
         price: "2",
         category: "Sauces",
-        imagecate: [
-          imagecheese,
-          imagespicy,
-        ]),
+        imagecate: [imagecheese, imagespicy, imagegarlic, imageLime]),
     Food(
         img: imagegarlic,
         name: "Garlic sauce",

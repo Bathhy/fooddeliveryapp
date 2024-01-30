@@ -3,6 +3,7 @@ import 'package:fodddelieveryapp/Homepage/listview_card.dart';
 import 'package:fodddelieveryapp/bottomnavigation/profile/profile_acc.dart';
 import 'package:fodddelieveryapp/component/constant_color.dart';
 import 'package:fodddelieveryapp/controller/add_fav_controller.dart';
+import 'package:fodddelieveryapp/controller/auth_control.dart';
 import 'package:fodddelieveryapp/controller/bottom_navi_controller.dart';
 import 'package:fodddelieveryapp/controller/cart_controller.dart';
 import 'package:fodddelieveryapp/controller/food_detail_control.dart';
@@ -120,6 +121,7 @@ class Drawerclass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Authcontroller _authcont = Get.find();
     return Drawer(
       backgroundColor: colorOrange,
       child: ListView(
@@ -183,6 +185,7 @@ class Drawerclass extends StatelessWidget {
             onPressed: () {
               productStorage.instance.clearAcc();
               Get.offAll(() => MyLoginPage());
+              print("Already signout");
             },
             icon: Icon(
               Icons.arrow_forward_sharp,

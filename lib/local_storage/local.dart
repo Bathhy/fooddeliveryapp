@@ -105,7 +105,6 @@ class productStorage {
     return false;
   }
 
-
   // Save in favorite
   Future<bool> saveDataFav(List<Food> favmodel) async {
     final pref = await _getSharePreference();
@@ -133,8 +132,6 @@ class productStorage {
     final pref = await _getSharePreference();
     pref.clear();
   }
-
-  
 
   Future<bool> removeFav(Food food) async {
     final allFoods = await getFav();

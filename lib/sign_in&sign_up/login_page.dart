@@ -83,8 +83,7 @@ class MyLoginPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextFormField(
               controller: authController.Lemail,
-              decoration: const InputDecoration(
-                  labelText: 'Email Address', hintText: 'messi@gmail.com'),
+              decoration: const InputDecoration(labelText: 'Email Address'),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
@@ -98,7 +97,6 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: 'Enter password',
                     suffixIcon: InkWell(
                       child: Icon(
                           authController.ispasshidden.value
@@ -142,6 +140,7 @@ class MyLoginPage extends StatelessWidget {
                   authController.Lemail.text,
                   authController.Lpassword.text,
                 );
+                authController.clearlogin();
               },
             ),
           ),
@@ -161,7 +160,6 @@ class MyLoginPage extends StatelessWidget {
               controller: _authController.Remail,
               decoration: const InputDecoration(
                 labelText: 'Email Address',
-                hintText: 'messi@gmail.com',
               ),
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -178,7 +176,6 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  hintText: 'Enter password',
                   suffixIcon: InkWell(
                     child: Icon(
                         authController.ispasshidden.value
@@ -207,7 +204,6 @@ class MyLoginPage extends StatelessWidget {
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
-                  hintText: 'Enter password',
                   suffixIcon: InkWell(
                     child: Icon(
                         authController.confirmpasshiden.value
@@ -236,6 +232,7 @@ class MyLoginPage extends StatelessWidget {
                     _authController.Remail.text,
                     _authController.Rpassword.text,
                     _authController.RcPassword.text);
+                _authController.clearReg();
               },
             ),
           ),

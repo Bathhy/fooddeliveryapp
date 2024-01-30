@@ -18,7 +18,7 @@ class FoodBinding extends Bindings {
     Get.put(LoginTabController());
     Get.put(BottomNaviController());
     Get.put(Authcontroller());
-    Get.put(SplashController());
+    // Get.put(SplashController());
     Get.put(DetailController());
     Get.put(HistoryController());
     Get.put(AddFavouriteController());
