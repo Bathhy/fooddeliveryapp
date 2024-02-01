@@ -76,22 +76,27 @@ class _HomescreenState extends State<Homescreen>
                     size: 30,
                   ),
                 ),
-                Positioned(
-                  top: 5,
-                  left: 0,
-                  bottom: 20,
-                  child: CircleAvatar(
-                    radius: 35,
-                    backgroundColor: colorOrange,
-                    child: Center(
-                      child: Obx(
-                        () => Text(
-                          _addtoCartController.totalqty.toString(),
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
+                Obx(
+                  () {
+                    return _addtoCartController.totalqty.value > 0
+                        ? Positioned(
+                            top: 5,
+                            left: 0,
+                            bottom: 20,
+                            child: CircleAvatar(
+                              radius: 35,
+                              backgroundColor: colorOrange,
+                              child: Center(
+                                child: Text(
+                                  _addtoCartController.totalqty.value
+                                      .toString(),
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          )
+                        : SizedBox();
+                  },
                 ),
               ],
             ),
